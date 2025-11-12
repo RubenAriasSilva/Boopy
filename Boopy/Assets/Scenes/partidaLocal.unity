@@ -202,7 +202,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -210,7 +210,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b2_1
+          m_StringArgument: 10
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7699433
@@ -334,7 +334,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -342,7 +342,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b5_1
+          m_StringArgument: 40
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &30164105
@@ -466,7 +466,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -474,7 +474,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b3_3
+          m_StringArgument: 22
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &86759985
@@ -598,7 +598,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -606,7 +606,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b2_2
+          m_StringArgument: 11
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &134320941
@@ -647,6 +647,203 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134320938}
   m_CullTransparentMesh: 1
+--- !u!1 &154263262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 154263263}
+  - component: {fileID: 154263266}
+  - component: {fileID: 154263265}
+  - component: {fileID: 154263264}
+  m_Layer: 5
+  m_Name: contenedor0P2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &154263263
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154263262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -959.3}
+  m_LocalScale: {x: 0.13013718, y: 1.1088598, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1239711387}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 4, y: -71.7}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &154263264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154263262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 154263265}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1062939305}
+        m_TargetAssemblyTypeName: BoopyGame.ContenedorVista, Assembly-CSharp
+        m_MethodName: OnClickGatitoChico
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 1
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &154263265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154263262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &154263266
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154263262}
+  m_CullTransparentMesh: 1
+--- !u!1001 &193276130
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.231874
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0079556
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.0884285
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99988544
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0151375495
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.735
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
+      propertyPath: m_Name
+      value: Gato_Gordo (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
 --- !u!1 &229173747
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,7 +927,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -738,7 +935,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b4_6
+          m_StringArgument: 35
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &229173750
@@ -862,7 +1059,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -870,7 +1067,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b6_5
+          m_StringArgument: 54
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &263051488
@@ -994,7 +1191,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -1002,7 +1199,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b2_4
+          m_StringArgument: 13
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &290623717
@@ -1126,7 +1323,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -1134,7 +1331,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b1_6
+          m_StringArgument: 05
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &350042746
@@ -1385,7 +1582,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -1393,7 +1590,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b3_5
+          m_StringArgument: 24
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &449440286
@@ -1433,6 +1630,138 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449440283}
+  m_CullTransparentMesh: 1
+--- !u!1 &456916414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 456916415}
+  - component: {fileID: 456916418}
+  - component: {fileID: 456916417}
+  - component: {fileID: 456916416}
+  m_Layer: 5
+  m_Name: contenedor1P2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &456916415
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456916414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -959.3}
+  m_LocalScale: {x: 0.13013718, y: 1.1088598, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1239711387}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 31.199995, y: -71.69996}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &456916416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456916414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 456916417}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1062939305}
+        m_TargetAssemblyTypeName: BoopyGame.ContenedorVista, Assembly-CSharp
+        m_MethodName: OnClickGatote
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 1
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &456916417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456916414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &456916418
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456916414}
   m_CullTransparentMesh: 1
 --- !u!1 &495194309
 GameObject:
@@ -1517,7 +1846,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -1525,7 +1854,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b6_3
+          m_StringArgument: 52
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &495194312
@@ -1649,7 +1978,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -1657,7 +1986,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b4_1
+          m_StringArgument: 30
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &507806620
@@ -1781,7 +2110,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -1789,7 +2118,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b5_6
+          m_StringArgument: 45
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &551103054
@@ -1913,7 +2242,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -1921,7 +2250,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b1_1
+          m_StringArgument: 00
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &691173246
@@ -2045,7 +2374,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -2053,7 +2382,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b4_3
+          m_StringArgument: 32
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &788016435
@@ -2177,7 +2506,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -2185,7 +2514,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b1_4
+          m_StringArgument: 03
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &838276031
@@ -2309,7 +2638,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -2317,7 +2646,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b3_1
+          m_StringArgument: 20
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &852528535
@@ -2441,7 +2770,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -2449,7 +2778,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b5_4
+          m_StringArgument: 43
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &883070179
@@ -2573,7 +2902,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -2581,7 +2910,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b1_3
+          m_StringArgument: 02
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &890451315
@@ -2784,7 +3113,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -2792,7 +3121,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b4_4
+          m_StringArgument: 33
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &930700828
@@ -2916,7 +3245,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -2924,7 +3253,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b2_3
+          m_StringArgument: 12
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &949280889
@@ -2975,15 +3304,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.67
+      value: -0.9899999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 1.0100002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.17
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6bb02e993d314624cbc994c554e09dc3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3122,7 +3451,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049321156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1005.8}
+  m_LocalPosition: {x: 0, y: 0, z: -948.8}
   m_LocalScale: {x: 0.13013718, y: 1.1088598, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3130,7 +3459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.9, y: -39.9}
+  m_AnchoredPosition: {x: -15.6, y: -48}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1049321158
@@ -3177,14 +3506,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
-        m_MethodName: Contenedor
-        m_Mode: 6
+      - m_Target: {fileID: 1062939305}
+        m_TargetAssemblyTypeName: BoopyGame.ContenedorVista, Assembly-CSharp
+        m_MethodName: OnClickGatote
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 1
           m_BoolArgument: 1
@@ -3286,6 +3615,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 738b797b247a01f4e918a68a451543bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1062939304}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 738b797b247a01f4e918a68a451543bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1062939305}
   m_SourcePrefab: {fileID: 100100000, guid: 738b797b247a01f4e918a68a451543bd, type: 3}
 --- !u!1 &1062939303 stripped
 GameObject:
@@ -3304,9 +3636,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cc0265bcca3644bb460968d0a946a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tablero
-  gatitoPrefab: {fileID: 6326384973176415036, guid: 4b4df89c24da33d4899d5fdb3ef8f35f, type: 3}
-  gatoPrefab: {fileID: 821761646218904729, guid: e1f24f26e632ea34d91d767811db7586, type: 3}
-  tipoGato: 0
+  gatitoPrefab1: {fileID: 6326384973176415036, guid: 4b4df89c24da33d4899d5fdb3ef8f35f, type: 3}
+  gatoPrefab1: {fileID: 821761646218904729, guid: e1f24f26e632ea34d91d767811db7586, type: 3}
+  gatitoPrefab2: {fileID: 6326384973176415036, guid: 8e9e7ad935a7cf04da7d67f84040c0ac, type: 3}
+  gatoPrefab2: {fileID: 821761646218904729, guid: 7a6fce1078c29ac48af5583edefe7f4f, type: 3}
+--- !u!114 &1062939305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062939303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0968edff37a2fb44a695d0fe2c79334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoopyGame.ContenedorVista
+  partidaControlador: {fileID: 0}
 --- !u!1 &1147187738
 GameObject:
   m_ObjectHideFlags: 0
@@ -3334,7 +3680,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147187738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1005.8}
+  m_LocalPosition: {x: 0, y: 0, z: -948.8}
   m_LocalScale: {x: 0.13013718, y: 1.1088598, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3342,7 +3688,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.3, y: -39.9}
+  m_AnchoredPosition: {x: -42.8, y: -48}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1147187740
@@ -3389,14 +3735,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
-        m_MethodName: Contenedor
-        m_Mode: 6
+      - m_Target: {fileID: 1062939305}
+        m_TargetAssemblyTypeName: BoopyGame.ContenedorVista, Assembly-CSharp
+        m_MethodName: OnClickGatitoChico
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 1
           m_BoolArgument: 0
@@ -3522,7 +3868,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -3530,7 +3876,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b5_3
+          m_StringArgument: 42
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1221109855
@@ -3702,7 +4048,9 @@ RectTransform:
   - {fileID: 551103052}
   - {fileID: 1314482749}
   - {fileID: 1049321157}
+  - {fileID: 456916415}
   - {fileID: 1147187739}
+  - {fileID: 154263263}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.177, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3793,7 +4141,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -3801,7 +4149,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b3_4
+          m_StringArgument: 23
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1250612230
@@ -3925,7 +4273,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -3933,7 +4281,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b6_2
+          m_StringArgument: 51
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1283656208
@@ -4057,7 +4405,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -4065,7 +4413,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b6_6
+          m_StringArgument: 55
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1314482751
@@ -4189,7 +4537,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -4197,7 +4545,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b5_2
+          m_StringArgument: 41
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1345713493
@@ -4458,7 +4806,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -4466,7 +4814,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b4_2
+          m_StringArgument: 31
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1441114681
@@ -4590,7 +4938,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -4598,7 +4946,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b1_5
+          m_StringArgument: 04
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1500402382
@@ -4722,7 +5070,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -4730,7 +5078,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b6_1
+          m_StringArgument: 50
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1517100882
@@ -4854,7 +5202,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -4862,7 +5210,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b3_2
+          m_StringArgument: 21
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1543911880
@@ -4986,7 +5334,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -4994,7 +5342,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b6_4
+          m_StringArgument: 53
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1592831601
@@ -5118,7 +5466,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -5126,7 +5474,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b5_5
+          m_StringArgument: 44
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1653084415
@@ -5250,7 +5598,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -5258,7 +5606,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b4_5
+          m_StringArgument: 34
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1712604999
@@ -5309,15 +5657,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.52
+      value: -4.18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.8
+      value: -0.38
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5351,9 +5699,86 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 919132149155446097, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
       propertyPath: m_Name
       value: Gatito
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+--- !u!1001 &1821183969
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.041873932
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0079553
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.7184286
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7178631
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.033433214
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.015370399
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.69521123
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -3.978
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -1.403
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 88.212
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 919132149155446097, guid: cccd187853cbe3340a4c4a4e1c3b3db8, type: 3}
+      propertyPath: m_Name
+      value: Gatito (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5443,7 +5868,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -5451,7 +5876,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b1_2
+          m_StringArgument: 01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2002872352
@@ -5575,7 +6000,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -5583,7 +6008,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b3_6
+          m_StringArgument: 25
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2024952140
@@ -5707,7 +6132,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -5715,7 +6140,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b2_5
+          m_StringArgument: 14
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2068030130
@@ -5839,7 +6264,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1062939304}
-        m_TargetAssemblyTypeName: Tablero, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.TableroVista, Assembly-CSharp
         m_MethodName: SeleccionarCasilla
         m_Mode: 5
         m_Arguments:
@@ -5847,7 +6272,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: b2_6
+          m_StringArgument: 15
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2101333228
@@ -5899,4 +6324,6 @@ SceneRoots:
   - {fileID: 901959870}
   - {fileID: 1239711387}
   - {fileID: 955796775}
+  - {fileID: 193276130}
   - {fileID: 1766113105}
+  - {fileID: 1821183969}

@@ -8,6 +8,7 @@ namespace BoopyGame
         private bool juegoTerminado = false;
 
         private TableroModelo tablero;
+        //private TableroVista tableroVista;
         private MotorDeReglas motorDeReglas;
         private Jugador jugador1;
         private Jugador jugador2;
@@ -26,6 +27,8 @@ namespace BoopyGame
         {
             // Inicialización de los objetos
             tablero = new TableroModelo();
+            //tableroVista.tableroModelo = tablero;
+            //tableroVista = new TableroVista(tablero);
             motorDeReglas = new MotorDeReglas(tablero);
 
             jugador1 = new Jugador((int)Jugadores.JUGADOR1, -1, -2);
@@ -62,6 +65,8 @@ namespace BoopyGame
             //Restamos gato del contenedor
             jugadorActual.QuitarGatoDelContenedor();
 
+            // Acutuaizar tablero vista
+
             //Revisamos movimientos del Boopy
             List<CambioBoop> cambios = motorDeReglas.Boopy(fila, col);
 
@@ -85,7 +90,9 @@ namespace BoopyGame
             }
 
             // cambiamos de turno
-            cambiarTurno();
+            // cambiarTurno();
+
+            tablero.MostrarTablero();
 
             return true;
         }

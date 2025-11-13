@@ -13,7 +13,7 @@ namespace BoopyGame
         private int[,] tablero = new int[TAMANIO_TABLERO, TAMANIO_TABLERO];
 
         // Constructor
-        public TableroModelo() {}
+        public TableroModelo() { }
 
         // Validaciones
 
@@ -21,10 +21,10 @@ namespace BoopyGame
         {
             // Fila fuera de rango
             if (fila < 0 || fila >= TAMANIO_TABLERO) return false;
-            
+
             // Columna fuera de rango
             if (col < 0 || col >= TAMANIO_TABLERO) return false;
-            
+
             return true; // Posicion dentro del tablero
         }
 
@@ -67,7 +67,7 @@ namespace BoopyGame
         {
             return TAMANIO_TABLERO;
         }
-        
+
         // Método para saber a quién pertenece la ficha
         public int GetPropietario(int fila, int col)
         {

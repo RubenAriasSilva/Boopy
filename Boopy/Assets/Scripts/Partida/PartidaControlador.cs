@@ -8,7 +8,7 @@ namespace BoopyGame
         private bool juegoTerminado = false;
 
         private TableroModelo tablero;
-        //private TableroVista tableroVista;
+        private TableroVista tableroVista;
         private MotorDeReglas motorDeReglas;
         private Jugador jugador1;
         private Jugador jugador2;
@@ -27,8 +27,15 @@ namespace BoopyGame
         {
             // Inicialización de los objetos
             tablero = new TableroModelo();
-            //tableroVista.tableroModelo = tablero;
-            //tableroVista = new TableroVista(tablero);
+
+            if (tableroVista == null)
+            {
+                tableroVista = FindFirstObjectByType<TableroVista>();
+            }                
+
+            tableroVista.Inicializar(this);
+            tableroVista.copiarTablero(tablero);
+
             motorDeReglas = new MotorDeReglas(tablero);
 
             jugador1 = new Jugador((int)Jugadores.JUGADOR1, -1, -2);
@@ -56,14 +63,25 @@ namespace BoopyGame
 
         public bool realizarMovimiento(int fila, int col)
         {
+            Debug.Log("Antes de insertar");
+            Debug.Log(tablero.MostrarTablero());
             //Revisamos si el movimiento es valido
             if (!tablero.SetGato(jugadorActual.GatoSeleccionado, fila, col))
             {
+                Debug.Log("No es turno de este jugador");
                 return false;
             }
 
+            Debug.Log("Despues de insertar");
+            Debug.Log(tablero.MostrarTablero());
+
+            jugadorActual.DeseleccionarGato();
+
             //Restamos gato del contenedor
             jugadorActual.QuitarGatoDelContenedor();
+
+            
+            tableroVista.ActualizarTableroVisual();
 
             // Acutuaizar tablero vista
 
@@ -72,6 +90,8 @@ namespace BoopyGame
 
             //Realizamos el Boopy
             EjecutarCambiosBoop(cambios);
+            Debug.Log("Ejecutar Boopy");
+            Debug.Log(tablero.MostrarTablero());
 
             // Buscamos lineas en el tablero y el tipo de linea
             ResultadoLinea resultado = motorDeReglas.RevisarLineas();
@@ -90,9 +110,9 @@ namespace BoopyGame
             }
 
             // cambiamos de turno
-            // cambiarTurno();
+            cambiarTurno();
 
-            tablero.MostrarTablero();
+            Debug.Log("Final de realizar movimiento");
 
             return true;
         }
@@ -158,6 +178,11 @@ namespace BoopyGame
         public bool JuegoTerminado()
         {
             return juegoTerminado;
+        }
+
+        public int idJugadorAcutal()
+        {
+            return jugadorActual.IdJugador;
         }
 
         // Update is called once per frame

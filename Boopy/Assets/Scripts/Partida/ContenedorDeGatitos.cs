@@ -79,7 +79,7 @@ public class ContenedorDeGatitos
         cantGatosGrandes = otro.cantGatosGrandes;
         cantGatosPequenos = otro.cantGatosPequenos;
         valorGatito = otro.valorGatito;
-        valorGatote = otro.valorGatote;
+        valorGatote = otro.valorGatote;      
     }
 
 

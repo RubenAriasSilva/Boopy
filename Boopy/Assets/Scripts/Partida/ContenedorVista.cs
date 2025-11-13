@@ -9,12 +9,33 @@ namespace BoopyGame
 
         public void OnClickGatitoChico(int idJugador)
         {
-            partidaControlador.SeleccionarGato(idJugador, 1); // 1 = chico
+            int id = partidaControlador.idJugadorAcutal();
+            if(id == idJugador)
+            {
+                Debug.Log("Gatito seleccionado: P" + idJugador);
+                partidaControlador.SeleccionarGato(idJugador, 1); // 1 = chico    
+            } else
+            {
+                Debug.Log("No es turno de este jugador");
+                return;
+            }
+            
+            
         }
 
         public void OnClickGatote(int idJugador)
         {
-            partidaControlador.SeleccionarGato(idJugador, 2); // 2 = grande
+            int id = partidaControlador.idJugadorAcutal();
+            if(id == idJugador)
+            {
+                Debug.Log("Gatote seleccionado: P" + idJugador);
+                partidaControlador.SeleccionarGato(idJugador, 2); // 2 = grande    
+            } else
+            {
+                Debug.Log("No es turno de este jugador");
+            }
+
+            
         }
     }
 }

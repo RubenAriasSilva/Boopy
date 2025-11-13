@@ -3618,6 +3618,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 738b797b247a01f4e918a68a451543bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1062939305}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 738b797b247a01f4e918a68a451543bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1062939306}
   m_SourcePrefab: {fileID: 100100000, guid: 738b797b247a01f4e918a68a451543bd, type: 3}
 --- !u!1 &1062939303 stripped
 GameObject:
@@ -3652,7 +3655,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0968edff37a2fb44a695d0fe2c79334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoopyGame.ContenedorVista
-  partidaControlador: {fileID: 0}
+  partidaControlador: {fileID: 1062939306}
+--- !u!114 &1062939306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062939303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0987df51809149d4ba8de63953170df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoopyGame.PartidaControlador
 --- !u!1 &1147187738
 GameObject:
   m_ObjectHideFlags: 0

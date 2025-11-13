@@ -3,10 +3,8 @@ using UnityEngine.SceneManagement;
 
 namespace BoopyGame
 {    
-
     public class TableroVista : MonoBehaviour
     {
-
         [Header("Referencias")]
         public TableroModelo tableroModelo;  // Se asigna desde el PartidaControlador
         public GameObject gatitoPrefab1;
@@ -20,51 +18,36 @@ namespace BoopyGame
         private Transform[,] posicionesTablero;
         private GameObject[,] instanciasGatos;
 
-        public TableroVista(TableroModelo tableroRef)
+        public void Inicializar(PartidaControlador controlador)
         {
-            tableroModelo = tableroRef;
-            
-            // Validación y inicialización de arreglos en el constructor
-            if (tableroModelo == null)
-            {
-                Debug.LogError("Error: TableroModelo no está asignado en TableroVista.");
-                return;
-            }
-
-            int tamanio = tableroModelo.GetTamanioTablero();
-            posicionesTablero = new Transform[tamanio, tamanio];  // Movido al constructor
-            instanciasGatos = new GameObject[tamanio, tamanio];   // Movido al constructor
+            partidaCtr = controlador;
         }
 
-        /// <summary>
-        /// Se ejecuta al iniciar el juego. Crea los Transform de posición.
-        /// </summary>
+
         void Awake()
         {
-            // Re-validación (por seguridad en el flujo de Unity)
-            if (tableroModelo == null || posicionesTablero == null)
-            {
-                Debug.LogError("TableroVista no inicializado correctamente.");
-                return;
-            }
+        int tamanio = TableroModelo.TAMANIO_TABLERO; // puedes usar la constante estática directamente
+        posicionesTablero = new Transform[tamanio, tamanio];
+        instanciasGatos = new GameObject[tamanio, tamanio];
 
-            int tamanio = tableroModelo.GetTamanioTablero();
-
-            // Creamos objetos vacíos en la escena (operación segura en Awake)
-            for (int fila = 0; fila < tamanio; fila++)
+        for (int fila = 0; fila < tamanio; fila++)
+        {
+            for (int col = 0; col < tamanio; col++)
             {
-                for (int col = 0; col < tamanio; col++)
-                {
-                    GameObject posicionGO = new GameObject($"Posicion_{fila}_{col}");
-                    posicionGO.transform.SetParent(this.transform);
-                    posicionGO.transform.position = Posiciones.GatitoPosiciones[fila, col];
-                    posicionesTablero[fila, col] = posicionGO.transform;  // Asignamos al arreglo inicializado en el constructor
-                }
+                GameObject posicionGO = new GameObject($"Posicion_{fila}_{col}");
+                posicionGO.transform.SetParent(this.transform);
+                posicionGO.transform.position = Posiciones.GatitoPosiciones[fila, col];
+                posicionesTablero[fila, col] = posicionGO.transform;
             }
         }
-        /// <summary>
-        /// Recorre la matriz del TableroModelo y actualiza el tablero visual en Unity.
-        /// </summary>
+        }
+
+        
+        public void copiarTablero(TableroModelo tableroX)
+        {
+            tableroModelo = tableroX;
+        }
+
 
         public void ActualizarTableroVisual()
         {
@@ -139,8 +122,7 @@ namespace BoopyGame
             partidaCtr.realizarMovimiento(fila,columna);
         }
     }
-
-    // Se recomienda mover esta clase a su propio archivo (Posiciones.cs)
+    
     public static class Posiciones
     {
         // --- ROTACIONES ---

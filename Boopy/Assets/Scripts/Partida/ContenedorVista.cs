@@ -19,8 +19,6 @@ namespace BoopyGame
                 Debug.Log("No es turno de este jugador");
                 return;
             }
-            
-            
         }
 
         public void OnClickGatote(int idJugador)
@@ -34,8 +32,6 @@ namespace BoopyGame
             {
                 Debug.Log("No es turno de este jugador");
             }
-
-            
         }
     }
 }

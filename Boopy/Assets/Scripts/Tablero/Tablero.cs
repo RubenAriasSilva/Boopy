@@ -119,7 +119,8 @@ namespace BoopyGame
         {
             int fila = int.Parse(coordenada[0].ToString());
             int columna = int.Parse(coordenada[1].ToString());
-            partidaCtr.realizarMovimiento(fila,columna);
+
+            partidaCtr.IntentarMovimiento(fila, columna);            
         }
     }
     

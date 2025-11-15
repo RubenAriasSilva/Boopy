@@ -58,8 +58,7 @@ namespace BoopyGame
         {
             if (!haSeleccionadoGato) return;
 
-            contenedor.QuitarGato(gatoSeleccionado, 1);
-            DeseleccionarGato();
+            contenedor.QuitarGato(gatoSeleccionado, 1);            
         }
 
         // Agregar gatos al contenedor (por ejemplo, al retirarlos del tablero)
@@ -71,7 +70,8 @@ namespace BoopyGame
         // ToString opcional para depuración
         public override string ToString()
         {
-            return $"Jugador {idJugador}: {contenedor}";
+            return $"Jugador {idJugador}: Gatitos X{contenedor.CantGatosPequenos} Gatotes X{contenedor.CantGatosGrandes}";
         }
+
     }
 }

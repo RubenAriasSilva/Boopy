@@ -731,8 +731,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1062939305}
         m_TargetAssemblyTypeName: BoopyGame.ContenedorVista, Assembly-CSharp
-        m_MethodName: OnClickGatitoChico
-        m_Mode: 3
+        m_MethodName: OnClickGatitoChicoP2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1715,8 +1715,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1062939305}
         m_TargetAssemblyTypeName: BoopyGame.ContenedorVista, Assembly-CSharp
-        m_MethodName: OnClickGatote
-        m_Mode: 3
+        m_MethodName: OnClickGatoteP2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3508,8 +3508,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1062939305}
         m_TargetAssemblyTypeName: BoopyGame.ContenedorVista, Assembly-CSharp
-        m_MethodName: OnClickGatote
-        m_Mode: 3
+        m_MethodName: OnClickGatoteP1
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3668,6 +3668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0987df51809149d4ba8de63953170df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoopyGame.PartidaControlador
+  tableroVista: {fileID: 0}
 --- !u!1 &1147187738
 GameObject:
   m_ObjectHideFlags: 0
@@ -3752,8 +3753,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1062939305}
         m_TargetAssemblyTypeName: BoopyGame.ContenedorVista, Assembly-CSharp
-        m_MethodName: OnClickGatitoChico
-        m_Mode: 3
+        m_MethodName: OnClickGatitoChicoP1
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

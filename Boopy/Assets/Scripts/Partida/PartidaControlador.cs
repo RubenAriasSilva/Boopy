@@ -20,6 +20,17 @@ namespace BoopyGame
         private bool estaMoviendo = false;
         private int ganador = 0;
 
+        ModoDeJuego modo;
+
+        void Start()
+        {
+            //Recuperamos la elección guardada en el GameManager
+            modo = GameManager.Instance.ModoSeleccionado;
+
+            // Nos auto-configuramos con esa estrategia
+            IniciarPartida(modo);
+        }
+
         // Enumeracion para los jugadores
         private enum Jugadores { JUGADOR1 = 1, JUGADOR2 = 2 }
                 
@@ -49,11 +60,11 @@ namespace BoopyGame
                     estrategiaActual = new EstrategiaLocal();
                     break;
                 case ModoDeJuego.Tutorial:
-                    // estrategiaActual = new EstrategiaTutorial();
+                    estrategiaActual = new EstrategiaTutorial();
                     break;
                 case ModoDeJuego.VsIA:
                     // estrategiaActual = new EstrategiaVsIA();
-                    break;
+                    break;                
             }
             
             // Inicia la estrategia seleccionada
@@ -71,118 +82,28 @@ namespace BoopyGame
 
         public void ClickEnCasilla(int fila, int col)
         {
-            if (estrategiaActual != null && !estaMoviendo && !juegoTerminado)
+            if (estrategiaActual != null && !estaMoviendo && !juegoTerminado && jugadorActual.HaSeleccionadoGato)
             {
                 estrategiaActual.ManejarMovimiento(fila, col);
-            }
+            }            
         }
 
-        public void ClickEnContenedor(int tipoFicha)
+        public void ClickEnContenedor(int idJugador ,int tipoFicha)
         {
+            if((int)turnoActual != idJugador) {
+                Debug.Log("No es turno de este jugador");
+                return;
+            }
+
             if (estrategiaActual != null && !estaMoviendo && !juegoTerminado)
             {
                 estrategiaActual.ManejarSeleccionFicha(tipoFicha);
             }
-        }
-
-        public bool SeleccionarGato(int idJugador, int gato)
-        {
-            if ((int)turnoActual == idJugador)
-            {
-                // Convertimos el valor de la ficha para su respectivo jugador
-                gato *= jugadorActual.ValorGatito;
-                if (jugadorActual.SeleccionarGato(gato))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public void IntentarMovimiento(int fila, int col)
-        {
-            if(estaMoviendo) return;
-            Debug.Log("Jugador Actual: " + jugadorActual.IdJugador);
             Debug.Log(jugador1.ToString());
             Debug.Log(jugador2.ToString());
-            StartCoroutine(RealizarMovimiento(fila, col));
         }
 
-        private IEnumerator RealizarMovimiento(int fila, int col)
-        {
-            estaMoviendo = true;
-
-            if (!jugadorActual.HaSeleccionadoGato)
-            {
-                Debug.Log("No se ha seleccionado un gato");
-                estaMoviendo = false;
-                yield break;
-            }
-            
-            //Revisamos si el movimiento es valido
-            if (!tablero.SetGato(jugadorActual.GatoSeleccionado, fila, col))
-            {
-                Debug.Log("Movimiento invalido");
-                estaMoviendo = false;
-                yield break;
-            }
-
-            jugadorActual.QuitarGatoDelContenedor();
-            jugadorActual.DeseleccionarGato();
-            
-            tableroVista.ActualizarTableroVisual();
-
-            //Delay
-            yield return new WaitForSeconds(0.4f);
-
-            //Revisamos movimientos del Boopy
-            List<CambioBoop> cambios = motorDeReglas.Boopy(fila, col);
-            if(cambios.Count > 0)
-            {
-                //Realizamos el Boopy
-                EjecutarCambiosBoop(cambios);
-                Debug.Log("Ejecutando Boopy");
-
-                tableroVista.ActualizarTableroVisual();
-                
-                // Otra pausa
-                yield return new WaitForSeconds(0.5f);
-            }
-
-            // Buscamos lineas en el tablero y el tipo de linea
-            ResultadoLinea resultado = motorDeReglas.RevisarLineas();
-
-            // Revisamos el tipo de linea
-            if (resultado.tipo == ResultadoLinea.Tipo.LINEA_GANADORA)
-            {
-                // Linea de gatos grandes, terminamos el juego
-                Debug.Log("Gano el jugador " + idJugadorAcutal());
-                juegoTerminado = true;
-                ganador = jugadorActual.IdJugador;
-            }
-            else if (resultado.tipo == ResultadoLinea.Tipo.LINEA_NORMAL)
-            {
-                // Linea de gatos chicos, se hacen grandes
-                Debug.Log("Gatos chicos se hacen grandes");
-                PromoverGatitos(resultado.coords);
-
-                tableroVista.ActualizarTableroVisual();
-                yield return new WaitForSeconds(0.5f);
-            }
-
-            if (!juegoTerminado)
-            {
-                // cambiamos de turno
-                cambiarTurno();    
-            }
-
-            estaMoviendo = false;
-
-            Debug.Log("Final de realizar movimiento");
-        }
-                
-
-        public void EjecutarCambiosBoop(List<CambioBoop> cambios)
+        public void EjecutarCambiosBoopy(List<CambioBoop> cambios)
         {
             foreach (var cambio in cambios)
             {
@@ -239,6 +160,18 @@ namespace BoopyGame
             jugadorActual = (jugadorActual.IdJugador == (int)Jugadores.JUGADOR1) ? jugador2 : jugador1;
         }
 
+        public void RegresarMenuPrincipal()
+        {
+            Debug.Log("Saliendo de la partida...");
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.CargarMenuPrincipal();
+            }
+            else
+            {             
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            }
+        }
 
         public Jugador GetJugadorActual() => jugadorActual;
         public bool JuegoTerminado() => juegoTerminado;
@@ -248,6 +181,42 @@ namespace BoopyGame
         {
             juegoTerminado = true;
             ganador = idGanador;
+        }
+
+
+        // Metodos para partida tutorial
+        public void LimpiarTableroParaTutorial()
+        {            
+            for(int i=0; i<6; i++)
+                for(int j=0; j<6; j++)
+                    tablero.BorrarGato(i, j);
+            
+            ActualizarVista();
+        }
+
+        // Método para comunicarse con la UI (Asumiendo que tienes un texto en pantalla)
+        /*
+        [Header("UI")]
+        public TMPro.TextMeshProUGUI textoInstrucciones; // Asignar en Inspector
+
+        public void MostrarMensajeUI(string mensaje)
+        {
+            if(textoInstrucciones != null)
+                textoInstrucciones.text = mensaje;
+            
+            Debug.Log("UI: " + mensaje);
+        }
+        */
+
+        public void MostrarMensaje(string msg)
+        {
+            Debug.Log(msg);
+        }
+
+        // Helper para forzar actualización visual
+        public void ActualizarVista()
+        {
+            tableroVista.ActualizarTableroVisual();
         }
     }
 }

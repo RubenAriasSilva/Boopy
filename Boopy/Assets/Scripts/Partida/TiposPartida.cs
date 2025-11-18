@@ -6,6 +6,7 @@ namespace BoopyGame
         Local,
         Tutorial,
         VsIA,
-        Multijugador
+        Multijugador,
+        Ninguno
     }
 }

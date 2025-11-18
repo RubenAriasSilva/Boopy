@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+namespace BoopyGame
+{
 public class MenuControlador : MonoBehaviour
 {
     public void JugarPartidaLocal()
     {
         Debug.Log("Local");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameManager.Instance.ModoSeleccionado = ModoDeJuego.Local;        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void JugarPartidaMultijugador()
@@ -26,7 +30,8 @@ public class MenuControlador : MonoBehaviour
     public void JugarPartidaTutorial()
     {
         Debug.Log("Tutorial");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameManager.Instance.ModoSeleccionado = ModoDeJuego.Tutorial;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Salir()
@@ -34,4 +39,5 @@ public class MenuControlador : MonoBehaviour
         Debug.Log("Saliendo del juego . . .");
         Application.Quit();
     }
+}
 }

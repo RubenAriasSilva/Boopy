@@ -22,7 +22,7 @@ namespace BoopyGame
         {
             Jugador jugadorActual = controlador.GetJugadorActual();
             
-            // Lógica de selección
+            // Logica de selección
             if (jugadorActual != null)
             {
                 // Convertimos el valor de la ficha para su respectivo jugador
@@ -33,8 +33,6 @@ namespace BoopyGame
 
         public void ManejarMovimiento(int fila, int col)
         {
-            // Inicia la corrutina de movimiento EN el controlador
-            // (ya que esta clase no es un MonoBehaviour)
             controlador.StartCoroutine(RealizarMovimientoLocal(fila, col));
         }
 
@@ -67,15 +65,22 @@ namespace BoopyGame
             List<CambioBoop> cambios = motorDeReglas.Boopy(fila, col);
             if (cambios.Count > 0)
             {
-                controlador.EjecutarCambiosBoop(cambios);
+                controlador.EjecutarCambiosBoopy(cambios);
                 Debug.Log("Ejecutando Boopy");
                 controlador.tableroVista.ActualizarTableroVisual();
                 yield return new WaitForSeconds(0.5f);
             }
 
+            // Si el jugador puso todos sus gatitos dentro del tablero, gana el juego
+            if (jugadorActual.TodosLosGatosDentro())
+            {
+                Debug.Log("Gano el jugador " + jugadorActual.IdJugador + "Todos sus gatos dentro");
+                controlador.SetJuegoTerminado(jugadorActual.IdJugador);
+            }
+
             ResultadoLinea resultado = motorDeReglas.RevisarLineas();
 
-            if (resultado.tipo == ResultadoLinea.Tipo.LINEA_GANADORA)
+            if (resultado.tipo == ResultadoLinea.Tipo.LINEA_GANADORA) // Si el jugador hizo una linea de 3 gatotes, gana el juego
             {
                 Debug.Log("Gano el jugador " + jugadorActual.IdJugador);
                 controlador.SetJuegoTerminado(jugadorActual.IdJugador);
@@ -87,6 +92,10 @@ namespace BoopyGame
                 controlador.tableroVista.ActualizarTableroVisual();
                 yield return new WaitForSeconds(0.5f);
             }
+
+            // Si el juego termino, regresamos al menu principal
+            // A futuro se puede agregar este metodo a un boton en la escena
+            if (controlador.JuegoTerminado()) controlador.RegresarMenuPrincipal();
 
             if (!controlador.JuegoTerminado())
             {

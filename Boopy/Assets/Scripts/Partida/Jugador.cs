@@ -67,6 +67,13 @@ namespace BoopyGame
             contenedor.AgregarGato(tipo, cantidad);
         }
 
+        public bool TodosLosGatosDentro()
+        {
+            if(contenedor.TotalGatos == 0) return true;
+
+            return false;
+        }
+
         // ToString opcional para depuración
         public override string ToString()
         {

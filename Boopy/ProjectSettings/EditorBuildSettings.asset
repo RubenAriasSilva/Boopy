@@ -6,11 +6,39 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/menuPrincipal.unity
     guid: 6b018baced3ffff40b6ca01af67f1c1c
   - enabled: 1
     path: Assets/Scenes/partidaLocal.unity
+=======
+    path: Assets/Scenes/inicio.unity
+    guid: c7ecd6ace1615054397c078d5f08be2a
+  - enabled: 1
+    path: Assets/Scenes/menuPrincipal.unity
+    guid: e54a78578a26a624599f7ec486d0f39a
+  - enabled: 1
+    path: Assets/Scenes/perfil.unity
+    guid: 4c5f806c815c3a34493ca946d17ab076
+  - enabled: 1
+    path: Assets/Scenes/clasificaciones.unity
+    guid: d2f1df23500c05142bccd5f443200e86
+  - enabled: 1
+    path: Assets/Scenes/cosmeticos.unity
+    guid: d092e48cc06a1e14fa0feb4b385d5696
+  - enabled: 1
+    path: Assets/Scenes/ajustes.unity
+    guid: e3f3a09ef4c1e244b999a6c0c499d0df
+  - enabled: 1
+    path: Assets/Scenes/partidaLocal/prePartidaLocal.unity
+    guid: 274efaf627db27b46b4bcbfbbfad03eb
+  - enabled: 1
+    path: Assets/Scenes/partidaLocal/partidaLocal.unity
+>>>>>>> Stashed changes
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/partidaEnLinea/prePartidaEnLinea.unity
+    guid: 2bc43de68cc8007468fddf03ebc6b736
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -10,13 +10,10 @@ public class MenuControlador : MonoBehaviour
 {
     public void JugarPartidaLocal()
     {
-<<<<<<< Updated upstream
-        Debug.Log("Local");
-        GameManager.Instance.ModoSeleccionado = ModoDeJuego.Local;        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-=======
+        //Debug.Log("Local");
+        //GameManager.Instance.ModoSeleccionado = ModoDeJuego.Local;        
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.LoadScene("prePartidaLocal");
->>>>>>> Stashed changes
     }
 
     public void JugarPartidaMultijugador()
@@ -32,12 +29,10 @@ public class MenuControlador : MonoBehaviour
     public void JugarPartidaTutorial()
     {
         Debug.Log("Tutorial");
-<<<<<<< Updated upstream
-        GameManager.Instance.ModoSeleccionado = ModoDeJuego.Tutorial;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-=======
-    }
 
+        GameManager.Instance.ModoSeleccionado = ModoDeJuego.Tutorial;
+        SceneManager.LoadScene("partida");
+    }
 
     public void AbrirPerfil()
     {
@@ -57,7 +52,6 @@ public class MenuControlador : MonoBehaviour
     public void AbrirAjustes()
     {
         SceneManager.LoadScene("ajustes");
->>>>>>> Stashed changes
     }
 
     public void Salir()

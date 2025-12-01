@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 namespace BoopyGame
 {
     public class PartidaControlador : MonoBehaviour
@@ -8,6 +9,8 @@ namespace BoopyGame
         [Header("Vistas")]
         public TableroVista tableroVista;
         public PartidaTutorialVista tutorialVista;
+
+        public GameObject botonContinuar;
 
         public TableroModelo tablero { get; private set; }
         public MotorDeReglas motorDeReglas { get; private set; }
@@ -27,7 +30,7 @@ namespace BoopyGame
         {
             //Recuperamos la elección guardada en el GameManager
             modo = GameManager.Instance.ModoSeleccionado;
-
+            botonContinuar.SetActive(false);
             // Nos auto-configuramos con esa estrategia
             IniciarPartida(modo);
         }
@@ -61,6 +64,7 @@ namespace BoopyGame
                     estrategiaActual = new EstrategiaLocal();
                     break;
                 case ModoDeJuego.Tutorial:
+                    botonContinuar.SetActive(true);
                     estrategiaActual = new EstrategiaTutorial();
                     if(tutorialVista == null)
                     {

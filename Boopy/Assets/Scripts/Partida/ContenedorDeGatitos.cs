@@ -21,7 +21,7 @@ public class ContenedorDeGatitos
         this.valorGatito = valorGatito;
         this.valorGatote = valorGatote;
         cantGatosPequenos = MAX_GATOS;
-        cantGatosGrandes = 3;
+        cantGatosGrandes = 0;
     }
 
     // Constructor copia

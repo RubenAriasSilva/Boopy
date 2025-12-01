@@ -44,8 +44,8 @@ namespace BoopyGame
             {
                 mensajeInstruccion = "¡Muy bien! Ahora coloca tu Gatito en la cama (3,3)",
                 requiereColocarFicha = true,
-                filaEsperada = 3,
-                colEsperada = 3,
+                filaEsperada = 2,
+                colEsperada = 2,
                 accionDeConfiguracion = () =>{
                     controlador.GetJugadorActual().SeleccionarGato(-1);
                     controlador.GetJugadorActual().QuitarGatoDelContenedor();
@@ -70,8 +70,8 @@ namespace BoopyGame
             {
                 mensajeInstruccion = "Pon un gatito en la casilla 3,3 y ve lo que sucede!",
                 requiereColocarFicha = true,
-                filaEsperada = 3,
-                colEsperada = 3,
+                filaEsperada = 2,
+                colEsperada = 2,
                 accionDeConfiguracion = () =>
                 {
                     controlador.GetJugadorActual().SeleccionarGato(-1);
@@ -98,11 +98,10 @@ namespace BoopyGame
                 requiereSeleccionarFicha = true,
                 tipoFichaEsperada = -1,
                 requiereColocarFicha = true,
-                filaEsperada = 5,
-                colEsperada = 3,
+                filaEsperada = 4,
+                colEsperada = 2,
                 accionDeConfiguracion = () =>
-                {
-                    //controlador.EjecutarCambiosBoopy(motor.Boopy(4,2));
+                {                    
                     controlador.ActualizarVista();
                 }
             });
@@ -112,6 +111,7 @@ namespace BoopyGame
                 mensajeInstruccion = "Han aparecido más gatos enemijos rodeando a uno de tus gatitos!",
                 accionDeConfiguracion = () =>
                 {
+                    controlador.tablero.BorrarGato(4,2);
                     controlador.tablero.SetGato(1, 1, 3);
                     controlador.tablero.SetGato(1, 2, 4);
                     controlador.tablero.SetGato(-1, 2, 3);
@@ -128,15 +128,14 @@ namespace BoopyGame
                 filaEsperada = 3,
                 colEsperada = 3,
                 accionDeConfiguracion = () =>
-                {
-                    controlador.EjecutarCambiosBoopy(motor.Boopy(3,3));
+                {                    
                     controlador.ActualizarVista();
                 }
             });
             // Paso 8: Poner gato enemigo en 2,5
             pasos.Add( new PasoTutorial
             {
-                mensajeInstruccion = "",
+                mensajeInstruccion = "Un oponente ha aparecido y ha empujado varios gatos",
                 accionDeConfiguracion = () =>
                 {
                     controlador.tablero.SetGato(1, 1, 4);
@@ -147,22 +146,21 @@ namespace BoopyGame
             // Paso 9: Jugador pone gato en 4,2 para hacer una linea de gatitos
             pasos.Add( new PasoTutorial
             {
-                mensajeInstruccion = "Pon un gatito en la casilla 2,4 para hacer una linea de 3 gatitos",
+                mensajeInstruccion = "Pon un gatito en la casilla 4,2 para hacer una linea de 3 gatitos",
                 requiereSeleccionarFicha = true,
                 tipoFichaEsperada = -1,
                 requiereColocarFicha = true,
-                filaEsperada = 2,
-                colEsperada = 4,
+                filaEsperada = 3,
+                colEsperada = 1,
                 accionDeConfiguracion = () =>
-                {
-                    controlador.EjecutarCambiosBoopy(motor.Boopy(1,3));
+                {                    
                     controlador.ActualizarVista();
                 }
             });
             // Paso 10: Seleccionar un gatote
             pasos.Add( new PasoTutorial
             {
-                 mensajeInstruccion = "Ahora tienes 3 gatotes disponibles, selecciona uno de ellos",
+                mensajeInstruccion = "Ahora tienes 3 gatotes disponibles, selecciona uno de ellos",
                 requiereSeleccionarFicha = true,
                 tipoFichaEsperada = -2,                
             });
@@ -173,8 +171,8 @@ namespace BoopyGame
                 requiereSeleccionarFicha = true,
                 tipoFichaEsperada = -2,
                 requiereColocarFicha = true,
-                filaEsperada = 4,
-                colEsperada = 3,
+                filaEsperada = 3,
+                colEsperada = 2,
                 accionDeConfiguracion = () =>
                 {
                     controlador.EjecutarCambiosBoopy(motor.Boopy(3,2));
@@ -192,70 +190,54 @@ namespace BoopyGame
                     controlador.ActualizarVista();
                 }
             });
-            // Paso 13: Borrar gatito en 4,4
-            pasos.Add( new PasoTutorial
-            {
-                accionDeConfiguracion = () =>
-                {
-                    controlador.tablero.BorrarGato(3,3);
-                }
-            });
-            // Paso 14: Poner un gatote, para ver que este si empuja gatotes
+            
+            // Paso 13: Poner un gatote, para ver que este si empuja gatotes
             pasos.Add( new PasoTutorial
             {
                 mensajeInstruccion = "Un gatote enemigo empujo a tu gatote porque pesan lo mismo",
                 accionDeConfiguracion = () =>
                 {
+                    controlador.tablero.BorrarGato(3,3);
                     controlador.tablero.SetGato(2,3,3);
                     controlador.EjecutarCambiosBoopy(motor.Boopy(3,3));
                     controlador.ActualizarVista();
                 }
             });
-            // Paso 15: Borrar tablero
+
+            // Paso 14: Poner gatotes en 3,4 y 4,4
             pasos.Add( new PasoTutorial
             {
+                mensajeInstruccion = "Dejemos 2 de tus gatos grandes en el tablero",
                 accionDeConfiguracion = () =>
                 {
                     controlador.LimpiarTableroParaTutorial();
+                    controlador.tablero.SetGato(-2,2,3);
+                    controlador.tablero.SetGato(-2,3,3);
+                    controlador.ActualizarVista();
                 }
             });
-            // Paso 16: Poner gatotes en 3,4 y 4,4
-            pasos.Add( new PasoTutorial
-            {
-                accionDeConfiguracion = () =>
-                {
-                    controlador.tablero.SetGato(2,2,3);
-                    controlador.tablero.SetGato(2,3,3);
-                }
-            });
-            // Paso 17: Jugador pone gatote en 5,4 para hacer linea ganadora
+            // Paso 15: Jugador pone gatote en 5,4 para hacer linea ganadora
             pasos.Add( new PasoTutorial
             {
                 mensajeInstruccion = "Pon un gatote en la casilla 5,4",
                 requiereSeleccionarFicha = true,
                 tipoFichaEsperada = -2,
                 requiereColocarFicha = true,
-                filaEsperada = 5,
-                colEsperada = 4,
+                filaEsperada = 4,
+                colEsperada = 3,
                 accionDeConfiguracion = () =>
-                {
-                    controlador.EjecutarCambiosBoopy(motor.Boopy(4,3));
+                {                    
                     controlador.ActualizarVista();
                 }
             });
-            // Paso 18: Borrar tablero
+            
+            // Paso 16: Poner 7 gatos en tablero
             pasos.Add( new PasoTutorial
             {
+                mensajeInstruccion = "Existe otra forma de ganar el juego, probemosla",
                 accionDeConfiguracion = () =>
                 {
                     controlador.LimpiarTableroParaTutorial();
-                }
-            });
-            // Paso 19: Poner 7 gatos en tablero
-            pasos.Add( new PasoTutorial
-            {
-                accionDeConfiguracion = () =>
-                {
                     controlador.tablero.SetGato(-1,2,2);
                     controlador.tablero.SetGato(-1,1,4);
                     controlador.tablero.SetGato(-2,2,5);
@@ -266,7 +248,7 @@ namespace BoopyGame
                     controlador.ActualizarVista();
                 }
             });
-            // Paso 20: Jugador pone el ultimo gatito en coord estrategica y gana con 8 gatos dentro
+            // Paso 17: Jugador pone el ultimo gatito en coord estrategica y gana con 8 gatos dentro
             pasos.Add( new PasoTutorial
             {
                 mensajeInstruccion = "Pon un gatote en la casilla 3,4, esto no sacara ninguno de tus gatos y hará que ganes",
@@ -276,8 +258,7 @@ namespace BoopyGame
                 filaEsperada = 3,
                 colEsperada = 4,
                 accionDeConfiguracion = () =>
-                {
-                    controlador.EjecutarCambiosBoopy(motor.Boopy(3,4));
+                {                    
                     controlador.ActualizarVista();
                 }
             });
@@ -289,8 +270,13 @@ namespace BoopyGame
 
             if((paso.requiereColocarFicha || paso.requiereSeleccionarFicha) && !accionJugadorRealizada){
                 return;
-            }
+            }            
             indicePasoActual++;
+            if(indicePasoActual >= pasos.Count)
+            {
+                FinalizarTutorial();
+                return;
+            }
             EjecutarPaso();
         }
 
@@ -330,13 +316,11 @@ namespace BoopyGame
         public void ManejarMovimiento(int fila, int col)
         {
             PasoTutorial paso = pasos[indicePasoActual];
-
             if (paso.requiereColocarFicha)
             {
-                if (fila+1 == paso.filaEsperada && col+1 == paso.colEsperada)
+                if (fila == paso.filaEsperada && col == paso.colEsperada)
                 {
-                    // ¡Movimiento Correcto!
-                    // Iniciamos la corrutina visual en el controlador
+                    
                     controlador.StartCoroutine(RutinaMovimientoTutorial(fila, col));
                     accionJugadorRealizada = true;
                 }
@@ -360,7 +344,7 @@ namespace BoopyGame
             yield return new WaitForSeconds(0.5f);
 
             // 2. Ejecutar Boop
-            var cambios = controlador.motorDeReglas.Boopy(fila, col); // Asegurate de usar el nombre correcto de tu metodo
+            var cambios = controlador.motorDeReglas.Boopy(fila, col);
             if (cambios.Count > 0)
             {
                 controlador.EjecutarCambiosBoopy(cambios);

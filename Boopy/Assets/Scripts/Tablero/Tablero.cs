@@ -26,7 +26,7 @@ namespace BoopyGame
 
         void Awake()
         {
-        int tamanio = TableroModelo.TAMANIO_TABLERO; // puedes usar la constante estática directamente
+        int tamanio = TableroModelo.TAMANIO_TABLERO;
         posicionesTablero = new Transform[tamanio, tamanio];
         instanciasGatos = new GameObject[tamanio, tamanio];
 

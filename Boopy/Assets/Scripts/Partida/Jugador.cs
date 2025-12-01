@@ -5,10 +5,10 @@ namespace BoopyGame
     public class Jugador
     {
         // Atributos privados
-        private int idJugador;
-        private ContenedorDeGatitos contenedor;
-        private bool haSeleccionadoGato;
-        private int gatoSeleccionado; // 1 = pequeño, 2 = grande
+        public int idJugador;
+        public ContenedorDeGatitos contenedor;
+        public bool haSeleccionadoGato;
+        public int gatoSeleccionado; // 1 = pequeño, 2 = grande
 
         // Constructor
         public Jugador(int tipo, int valGatito, int valGatote)

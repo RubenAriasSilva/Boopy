@@ -8,9 +8,13 @@ namespace BoopyGame
     {
         [Header("Vistas")]
         public TableroVista tableroVista;
+        public ContenedorVista contenedorVista;
         public PartidaTutorialVista tutorialVista;
 
         public GameObject botonContinuar;
+
+        public GameObject contenedorJugador1;
+        public GameObject contenedorJugador2;
 
         public TableroModelo tablero { get; private set; }
         public MotorDeReglas motorDeReglas { get; private set; }
@@ -47,6 +51,8 @@ namespace BoopyGame
             jugador2 = new Jugador((int)Jugadores.JUGADOR2, 1, 2);
             jugadorActual = jugador1;
             turnoActual = Jugadores.JUGADOR1;
+            contenedorJugador1.SetActive(true);
+            contenedorJugador2.SetActive(false);
             juegoTerminado = false;
 
             // Conectar la Vista
@@ -56,6 +62,13 @@ namespace BoopyGame
             }
             tableroVista.Inicializar(this);
             tableroVista.copiarTablero(tablero);
+
+            // Conectar la Vista
+            if (contenedorVista == null)
+            {
+                contenedorVista = FindFirstObjectByType<ContenedorVista>();
+            }
+            contenedorVista.Inicializar(this);
 
             // SELECCIONAR E INICIAR LA ESTRATEGIA
             switch (modo)
@@ -170,6 +183,14 @@ namespace BoopyGame
         {
             turnoActual = (turnoActual == Jugadores.JUGADOR1) ? Jugadores.JUGADOR2 : Jugadores.JUGADOR1;
             jugadorActual = (jugadorActual.IdJugador == (int)Jugadores.JUGADOR1) ? jugador2 : jugador1;
+
+            if(jugadorActual.IdJugador == (int)Jugadores.JUGADOR1){
+                contenedorJugador1.SetActive(true);
+                contenedorJugador2.SetActive(false);
+            } else {
+                contenedorJugador1.SetActive(false);
+                contenedorJugador2.SetActive(true);
+            }
         }
 
         public void RegresarMenuPrincipal()
@@ -236,6 +257,7 @@ namespace BoopyGame
         public void ActualizarVista()
         {
             tableroVista.ActualizarTableroVisual();
+            contenedorVista.ActualizarContenedor(jugador1.contenedor.CantGatosPequenos, jugador1.contenedor.CantGatosGrandes, jugador2.contenedor.CantGatosPequenos, jugador2.contenedor.CantGatosGrandes);
         }
     }
 }

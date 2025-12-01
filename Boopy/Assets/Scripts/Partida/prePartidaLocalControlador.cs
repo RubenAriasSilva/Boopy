@@ -54,6 +54,11 @@ namespace BoopyGame
 
         public void Iniciar ()
         {
+            SeleccionDeCosmeticos.IdGatitoJugador1 = this.idGatitoEquipadoJugador1;
+            SeleccionDeCosmeticos.IdGatoJugador1 = this.idGatoEquipadoJugador1;
+            SeleccionDeCosmeticos.IdGatitoJugador2 = this.idGatitoEquipadoJugador2;
+            SeleccionDeCosmeticos.IdGatoJugador2 = this.idGatoEquipadoJugador2;
+
             GameManager.Instance.ModoSeleccionado = ModoDeJuego.Local;        
             SceneManager.LoadScene("partida");
         }

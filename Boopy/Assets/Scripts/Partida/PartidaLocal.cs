@@ -38,9 +38,12 @@ namespace BoopyGame
 
         // ¡TODA TU LÓGICA DE CORRUTINA SE MUDÓ AQUÍ!
         private IEnumerator RealizarMovimientoLocal(int fila, int col)
-        {
+        {            
+            
             controlador.SetEstaMoviendo(true);
             Jugador jugadorActual = controlador.GetJugadorActual();
+            Jugador jugadorGanador = null;
+            int token;
 
             if (!jugadorActual.HaSeleccionadoGato)
             {
@@ -82,8 +85,10 @@ namespace BoopyGame
 
             if (resultado.tipo == ResultadoLinea.Tipo.LINEA_GANADORA) // Si el jugador hizo una linea de 3 gatotes, gana el juego
             {
-                Debug.Log("Gano el jugador " + jugadorActual.IdJugador);
-                controlador.SetJuegoTerminado(jugadorActual.IdJugador);
+                token = tablero.GetGato(resultado.coords[0,0], resultado.coords[0,1]);
+                jugadorGanador = (token < 0) ? controlador.GetJugador1() : controlador.GetJugador2();
+                Debug.Log("Gano el jugador " + jugadorGanador.IdJugador);
+                controlador.SetJuegoTerminado(jugadorGanador.IdJugador);
             }
             else if (resultado.tipo == ResultadoLinea.Tipo.LINEA_NORMAL)
             {
@@ -105,6 +110,8 @@ namespace BoopyGame
             controlador.SetEstaMoviendo(false);
             Debug.Log("Final de realizar movimiento");
         }
+
+        public void SiguientePaso(){}
 
         public void Actualizar()
         {

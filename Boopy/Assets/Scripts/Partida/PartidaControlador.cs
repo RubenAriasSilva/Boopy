@@ -7,6 +7,7 @@ namespace BoopyGame
     {
         [Header("Vistas")]
         public TableroVista tableroVista;
+        public PartidaTutorialVista tutorialVista;
 
         public TableroModelo tablero { get; private set; }
         public MotorDeReglas motorDeReglas { get; private set; }
@@ -61,6 +62,11 @@ namespace BoopyGame
                     break;
                 case ModoDeJuego.Tutorial:
                     estrategiaActual = new EstrategiaTutorial();
+                    if(tutorialVista == null)
+                    {
+                        tutorialVista = FindFirstObjectByType<PartidaTutorialVista>();
+                    }
+                    tutorialVista.Inicializar(this);
                     break;
                 case ModoDeJuego.VsIA:
                     // estrategiaActual = new EstrategiaVsIA();
@@ -99,8 +105,6 @@ namespace BoopyGame
             {
                 estrategiaActual.ManejarSeleccionFicha(tipoFicha);
             }
-            Debug.Log(jugador1.ToString());
-            Debug.Log(jugador2.ToString());
         }
 
         public void EjecutarCambiosBoopy(List<CambioBoop> cambios)
@@ -135,7 +139,9 @@ namespace BoopyGame
         // Borra 3 gatitos del tablero y añade 3 gatotes al inventario del jugador
         public void PromoverGatitos(int[,] coords)
         {
-            int gatoteToken = (turnoActual == Jugadores.JUGADOR1) ? jugador1.ValorGatote : jugador2.ValorGatote;
+            // Obtenemos el valor de las primeras coordenadas del primer gato
+            int gatoToken = tablero.GetGato(coords[0,0], coords[0,1]);
+            int gatoteToken = 0;
 
             // Borra los 3 gatitos del tablero
             for (int i = 0; i < 3; i++)
@@ -144,12 +150,14 @@ namespace BoopyGame
             }
 
             // Añade 3 gatotes al contenedor del jugador
-            if (turnoActual == Jugadores.JUGADOR1)
+            if (gatoToken < 0)
             {
+                gatoteToken = jugador1.ValorGatote;
                 jugador1.AgregarGatoAlContenedor(gatoteToken, 3);
             }
             else
             {
+                gatoteToken = jugador2.ValorGatote;
                 jugador2.AgregarGatoAlContenedor(gatoteToken, 3);
             }
         }
@@ -174,6 +182,8 @@ namespace BoopyGame
         }
 
         public Jugador GetJugadorActual() => jugadorActual;
+        public Jugador GetJugador1() => jugador1;
+        public Jugador GetJugador2() => jugador2;
         public bool JuegoTerminado() => juegoTerminado;
         public int idJugadorAcutal() => jugadorActual.IdJugador;
         public void SetEstaMoviendo(bool valor) => estaMoviendo = valor;
@@ -192,6 +202,11 @@ namespace BoopyGame
                     tablero.BorrarGato(i, j);
             
             ActualizarVista();
+        }
+
+        public void SiguientePasoTutorial()
+        {
+            estrategiaActual.SiguientePaso();
         }
 
         // Método para comunicarse con la UI (Asumiendo que tienes un texto en pantalla)

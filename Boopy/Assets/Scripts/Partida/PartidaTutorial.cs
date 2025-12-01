@@ -12,7 +12,7 @@ namespace BoopyGame
         private MotorDeReglas motor;
         private List<PasoTutorial> pasos;
         private int indicePasoActual = 0;
-        private bool pasoRealizado = true;
+        private bool accionJugadorRealizada = false;
 
         public void Iniciar(PartidaControlador controlador, TableroModelo tablero, MotorDeReglas motor)
         {
@@ -20,7 +20,7 @@ namespace BoopyGame
             this.tablero = tablero;
             this.motor = motor;
             CrearPasos();
-            controlador.StartCoroutine(EjecutarPasos());
+            EjecutarPaso();
         }
         
         private void CrearPasos()
@@ -102,11 +102,11 @@ namespace BoopyGame
                 colEsperada = 3,
                 accionDeConfiguracion = () =>
                 {
-                    controlador.EjecutarCambiosBoopy(motor.Boopy(4,2));
+                    //controlador.EjecutarCambiosBoopy(motor.Boopy(4,2));
                     controlador.ActualizarVista();
                 }
             });
-            // Paso 6: Poner gato enemigos en 2,4
+            // Paso 6: Poner gato enemigo en 2,4
             pasos.Add( new PasoTutorial
             {
                 mensajeInstruccion = "Han aparecido más gatos enemijos rodeando a uno de tus gatitos!",
@@ -115,6 +115,7 @@ namespace BoopyGame
                     controlador.tablero.SetGato(1, 1, 3);
                     controlador.tablero.SetGato(1, 2, 4);
                     controlador.tablero.SetGato(-1, 2, 3);
+                    controlador.ActualizarVista();
                 }
             });            
             // Paso 7: Jugador pone un gato en 4,4 para ver el efecto del bloqueo con 2 gatos
@@ -124,8 +125,8 @@ namespace BoopyGame
                 requiereSeleccionarFicha = true,
                 tipoFichaEsperada = -1,
                 requiereColocarFicha = true,
-                filaEsperada = 4,
-                colEsperada = 4,
+                filaEsperada = 3,
+                colEsperada = 3,
                 accionDeConfiguracion = () =>
                 {
                     controlador.EjecutarCambiosBoopy(motor.Boopy(3,3));
@@ -281,41 +282,43 @@ namespace BoopyGame
                 }
             });
         }
-        
-        private IEnumerator EjecutarPasos()
+
+        public void SiguientePaso()
         {
-            indicePasoActual = 0;            
-            while (indicePasoActual <= pasos.Count)
-            {
-                PasoTutorial paso = pasos[indicePasoActual];
-                // Mostrar mensaje en UI (Necesitas crear este método en Controlador)
-                //controlador.MostrarMensajeUI(paso.mensajeInstruccion);
-                controlador.MostrarMensaje(paso.mensajeInstruccion);
-                
-                // Ejecutar configuración inicial del paso (poner enemigos, limpiar, etc.)
-                if (paso.accionDeConfiguracion != null)
-                {
-                    paso.accionDeConfiguracion.Invoke();                    
-                }
+            PasoTutorial paso = pasos[indicePasoActual];
 
-                Debug.Log("Presiona ENTER para continuar...");        
-                // Esto detecta la tecla Enter en el teclado
-                //yield return new WaitUntil(() => Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame);
-                if(pasoRealizado) indicePasoActual++;
+            if((paso.requiereColocarFicha || paso.requiereSeleccionarFicha) && !accionJugadorRealizada){
+                return;
             }
+            indicePasoActual++;
+            EjecutarPaso();
+        }
 
-            FinalizarTutorial();            
+        private void EjecutarPaso()
+        {
+            Debug.Log("Paso: " + indicePasoActual);
+            PasoTutorial paso = pasos[indicePasoActual];
+            
+            controlador.MostrarMensaje(paso.mensajeInstruccion);
+            
+            if (paso.accionDeConfiguracion != null)
+            {
+                paso.accionDeConfiguracion.Invoke();                    
+            }
+            accionJugadorRealizada = false;
         }
 
         public void ManejarSeleccionFicha(int tipoFicha)
         {
-            PasoTutorial paso = pasos[indicePasoActual];
+            PasoTutorial paso = pasos[indicePasoActual];            
 
             if (paso.requiereSeleccionarFicha)
-            {                
+            {   
+                tipoFicha *= controlador.GetJugadorActual().ValorGatito;                
                 if (tipoFicha == paso.tipoFichaEsperada)
                 {
-                    controlador.GetJugadorActual().SeleccionarGato(tipoFicha);                    
+                    controlador.GetJugadorActual().SeleccionarGato(tipoFicha);
+                    accionJugadorRealizada = true;
                 }
                 else
                 {
@@ -334,7 +337,8 @@ namespace BoopyGame
                 {
                     // ¡Movimiento Correcto!
                     // Iniciamos la corrutina visual en el controlador
-                    controlador.StartCoroutine(RutinaMovimientoTutorial(fila, col));                    
+                    controlador.StartCoroutine(RutinaMovimientoTutorial(fila, col));
+                    accionJugadorRealizada = true;
                 }
                 else
                 {
@@ -389,7 +393,9 @@ namespace BoopyGame
              controlador.RegresarMenuPrincipal();
         }
 
-        public void Actualizar() { }
+        public void Actualizar()
+        {
+        }
     }
 }
 

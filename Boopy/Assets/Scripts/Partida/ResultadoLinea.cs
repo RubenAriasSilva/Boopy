@@ -4,7 +4,7 @@ namespace BoopyGame
     {
         public enum Tipo { NO_LINEA, LINEA_NORMAL, LINEA_GANADORA }
         public Tipo tipo = Tipo.NO_LINEA;
-        public int[,] coords = new int[3, 2]; // versión más clara
+        public int[,] coords = new int[3, 2];
     }
 
     public class CambioBoop

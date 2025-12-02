@@ -33,6 +33,17 @@ namespace BoopyGame
         public Toggle toggleGatitos;
         public Toggle toggleGatos;
 
+        public TMP_InputField inputFieldNombre1;
+        public TMP_InputField inputFieldNombre2;
+
+        public TextMeshProUGUI tituloJugador1;
+        public TextMeshProUGUI tituloJugador2;
+        public TextMeshProUGUI placeholder1;
+        public TextMeshProUGUI placeholder2;
+
+        private string nombreJugador1;
+        private string nombreJugador2;
+
         void Start()
         {
             // Simulamos que los jugadores tienen todos los cosméticos desbloqueados
@@ -50,6 +61,9 @@ namespace BoopyGame
                 idGatoEquipadoJugador1 = idsGatosDesbloqueados[0];
                 idGatoEquipadoJugador2 = idsGatosDesbloqueados[0];
             }
+
+            ActualizarNombre1();
+            ActualizarNombre2();
         }
 
         public void Iniciar ()
@@ -63,7 +77,7 @@ namespace BoopyGame
             SceneManager.LoadScene("partida");
         }
 
-        // --- MÉTODOS PRINCIPALES ---
+
 
         // Este método se llama desde los botones "Jugador 1" y "Jugador 2"
         public void cambiarGatos(bool jugador) // false = jugador1, true = jugador2
@@ -81,6 +95,40 @@ namespace BoopyGame
             mostrarGatitos = true;
             PoblarUI();
             toggleGatitos.isOn = true;
+        }
+
+        public void CambiarNombre1()
+        {
+            nombreJugador1 = inputFieldNombre1.text;
+            ActualizarNombre1();
+        }
+        
+        public void CambiarNombre2()
+        {
+            nombreJugador2 = inputFieldNombre2.text;
+            ActualizarNombre2();
+        }
+
+        public void ActualizarNombre1()
+        {
+            if (nombreJugador1 == null)
+            {
+                tituloJugador1.text = placeholder1.text;
+            } else 
+            {
+                tituloJugador1.text = nombreJugador1;
+            }
+        }
+
+        public void ActualizarNombre2()
+        {
+            if (nombreJugador2 == null)
+            {
+                tituloJugador2.text = placeholder2.text;
+            } else 
+            {
+                tituloJugador2.text = nombreJugador2;
+            }
         }
 
         public void CerrarCosmeticos()

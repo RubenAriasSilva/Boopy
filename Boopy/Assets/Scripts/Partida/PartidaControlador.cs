@@ -93,6 +93,7 @@ namespace BoopyGame
             // Inicia la estrategia seleccionada
             estrategiaActual.Iniciar(this, tablero, motorDeReglas);
             Debug.Log($"Partida iniciada en modo: {modo}");
+            ActualizarVista();
         }
 
         void Update()
@@ -150,6 +151,7 @@ namespace BoopyGame
                     tablero.SetGato(cambio.gatoEmpujado, cambio.filaDestino, cambio.colDestino);
                 }
             }
+            ActualizarVista();
         }
 
 
@@ -177,6 +179,7 @@ namespace BoopyGame
                 gatoteToken = jugador2.ValorGatote;
                 jugador2.AgregarGatoAlContenedor(gatoteToken, 3);
             }
+            ActualizarVista();
         }
 
         public void cambiarTurno()

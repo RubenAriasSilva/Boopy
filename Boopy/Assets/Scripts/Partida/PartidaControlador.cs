@@ -159,6 +159,7 @@ namespace BoopyGame
         public void PromoverGatitos(int[,] coords)
         {
             // Obtenemos el valor de las primeras coordenadas del primer gato
+            //Debug.Log("Coords" + coords[0,0] + "," +coords[0,1]);
             int gatoToken = tablero.GetGato(coords[0,0], coords[0,1]);
             int gatoteToken = 0;
 
@@ -174,7 +175,7 @@ namespace BoopyGame
                 gatoteToken = jugador1.ValorGatote;
                 jugador1.AgregarGatoAlContenedor(gatoteToken, 3);
             }
-            else
+            else if (gatoToken > 0)
             {
                 gatoteToken = jugador2.ValorGatote;
                 jugador2.AgregarGatoAlContenedor(gatoteToken, 3);

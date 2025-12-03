@@ -81,21 +81,26 @@ namespace BoopyGame
                 controlador.SetJuegoTerminado(jugadorActual.IdJugador);
             }
 
-            ResultadoLinea resultado = motorDeReglas.RevisarLineas();
-
-            if (resultado.tipo == ResultadoLinea.Tipo.LINEA_GANADORA) // Si el jugador hizo una linea de 3 gatotes, gana el juego
+            List<ResultadoLinea> resultados = motorDeReglas.RevisarLineas();
+            if(resultados.Count > 0)
             {
-                token = tablero.GetGato(resultado.coords[0,0], resultado.coords[0,1]);
-                jugadorGanador = (token < 0) ? controlador.GetJugador1() : controlador.GetJugador2();
-                Debug.Log("Gano el jugador " + jugadorGanador.IdJugador);
-                controlador.SetJuegoTerminado(jugadorGanador.IdJugador);
-            }
-            else if (resultado.tipo == ResultadoLinea.Tipo.LINEA_NORMAL)
-            {
-                Debug.Log("Gatos chicos se hacen grandes");
-                controlador.PromoverGatitos(resultado.coords);
-                controlador.tableroVista.ActualizarTableroVisual();
-                yield return new WaitForSeconds(0.5f);
+                foreach(var resultado in resultados)
+                {                    
+                    if (resultado.tipo == ResultadoLinea.Tipo.LINEA_GANADORA) // Si el jugador hizo una linea de 3 gatotes, gana el juego
+                    {
+                        token = tablero.GetGato(resultado.coords[0,0], resultado.coords[0,1]);
+                        jugadorGanador = (token < 0) ? controlador.GetJugador1() : controlador.GetJugador2();
+                        Debug.Log("Gano el jugador " + jugadorGanador.IdJugador);
+                        controlador.SetJuegoTerminado(jugadorGanador.IdJugador);
+                    }
+                    else if (resultado.tipo == ResultadoLinea.Tipo.LINEA_NORMAL)
+                    {
+                        Debug.Log("Gatos chicos se hacen grandes");
+                        controlador.PromoverGatitos(resultado.coords);
+                        controlador.tableroVista.ActualizarTableroVisual();
+                        yield return new WaitForSeconds(0.5f);
+                    }   
+                }                
             }
 
             // Si el juego termino, regresamos al menu principal

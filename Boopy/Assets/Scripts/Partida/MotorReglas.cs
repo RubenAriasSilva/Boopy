@@ -1,4 +1,6 @@
 using System;
+using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 using BoopyGame;
@@ -135,9 +137,10 @@ public class MotorDeReglas
         return tablero.GetGato(fila, col);
     }
 
-    public ResultadoLinea RevisarLineas()
+    public List<ResultadoLinea> RevisarLineas()
     {
-        int tam = tablero.GetTamanioTablero();
+        int tam = tablero.GetTamanioTablero();        
+        var resultados = new List<ResultadoLinea>();        
         var resultado = new ResultadoLinea(); // tipo = NO_LINEA por defecto
 
         for (int row = 0; row < tam; row++)
@@ -148,17 +151,25 @@ public class MotorDeReglas
                 if (token == 0) continue;
 
                 resultado.tipo = TresEnFila(token, row, col, resultado);
-                if (resultado.tipo != ResultadoLinea.Tipo.NO_LINEA) return resultado;
-
+                if (resultado.tipo != ResultadoLinea.Tipo.NO_LINEA)
+                {                                        
+                    resultados.Add(new ResultadoLinea(resultado.tipo, (int[,])resultado.coords.Clone()));
+                }
                 resultado.tipo = TresEnColumna(token, row, col, resultado);
-                if (resultado.tipo != ResultadoLinea.Tipo.NO_LINEA) return resultado;
+                if (resultado.tipo != ResultadoLinea.Tipo.NO_LINEA)
+                {                    
+                    resultados.Add(new ResultadoLinea(resultado.tipo, (int[,])resultado.coords.Clone()));
+                }
 
                 resultado.tipo = TresEnDiagonal(token, row, col, resultado);
-                if (resultado.tipo != ResultadoLinea.Tipo.NO_LINEA) return resultado;
+                if (resultado.tipo != ResultadoLinea.Tipo.NO_LINEA)
+                {                    
+                    resultados.Add(new ResultadoLinea(resultado.tipo, (int[,])resultado.coords.Clone()));
+                }
             }
         }
 
-        return resultado;
+        return resultados;
     }
 
     public string ToStringTablero()

@@ -3,8 +3,20 @@ namespace BoopyGame
     public class ResultadoLinea
     {
         public enum Tipo { NO_LINEA, LINEA_NORMAL, LINEA_GANADORA }
-        public Tipo tipo = Tipo.NO_LINEA;
-        public int[,] coords = new int[3, 2];
+        public Tipo tipo;
+        public int[,] coords;
+
+        public ResultadoLinea()
+        {
+            tipo = Tipo.NO_LINEA;
+            coords = new int[3, 2];
+        }
+            
+        public ResultadoLinea(Tipo t, int[,] c)
+        {
+            tipo = t;
+            coords = c;
+        }
     }
 
     public class CambioBoop

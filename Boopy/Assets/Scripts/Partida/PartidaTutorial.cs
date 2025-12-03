@@ -338,7 +338,7 @@ namespace BoopyGame
 
             // 1. Poner ficha y actualizar vista
             controlador.tablero.SetGato(jugadorActual.GatoSeleccionado, fila, col);
-            jugadorActual.QuitarGatoDelContenedor(); // Opcional en tutorial: a veces quieres munición infinita
+            jugadorActual.QuitarGatoDelContenedor();
             
             controlador.ActualizarVista();
             yield return new WaitForSeconds(0.5f);
@@ -353,12 +353,14 @@ namespace BoopyGame
             }
 
             // 3. Promoción (Si aplica al paso)
-            var resultado = controlador.motorDeReglas.RevisarLineas(); // Asegurate de usar el nombre correcto
-            if (resultado.tipo == ResultadoLinea.Tipo.LINEA_NORMAL)
-            {
-                controlador.PromoverGatitos(resultado.coords);
-                controlador.ActualizarVista();
-                yield return new WaitForSeconds(0.5f);
+            var resultados = controlador.motorDeReglas.RevisarLineas();
+            foreach(var resultado in resultados){
+                if (resultado.tipo == ResultadoLinea.Tipo.LINEA_NORMAL)
+                {
+                    controlador.PromoverGatitos(resultado.coords);
+                    controlador.ActualizarVista();
+                    yield return new WaitForSeconds(0.5f);
+                }
             }
 
             controlador.SetEstaMoviendo(false);            

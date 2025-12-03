@@ -17,5 +17,7 @@ MonoBehaviour:
   - Gatito de cristal
   - Glass Kitten
   iconoUI: {fileID: 21300000, guid: 92fa8f7f183d2e2479fee74b622dae4d, type: 3}
+  iconoRojo: {fileID: 21300000, guid: 40212f31e738769438cf29231e47b0d9, type: 3}
+  iconoAzul: {fileID: 21300000, guid: 2508d1e6d63a38947b61adecbdae1c44, type: 3}
   prefab3DRojo: {fileID: 6326384973176415036, guid: 82a7eb0839b72cb4ba2bc2167b7ae021, type: 3}
   prefab3DAzul: {fileID: 6326384973176415036, guid: 575c03d897e9b2f4188595b3e1c26338, type: 3}

@@ -120,6 +120,7 @@ namespace BoopyGame
             if (nombreJugador1 == null)
             {
                 tituloJugador1.text = placeholder1.text;
+                nombreJugador1 = placeholder1.text;
             } else 
             {
                 tituloJugador1.text = nombreJugador1;
@@ -131,6 +132,7 @@ namespace BoopyGame
             if (nombreJugador2 == null)
             {
                 tituloJugador2.text = placeholder2.text;
+                nombreJugador2 = placeholder2.text;
             } else 
             {
                 tituloJugador2.text = nombreJugador2;

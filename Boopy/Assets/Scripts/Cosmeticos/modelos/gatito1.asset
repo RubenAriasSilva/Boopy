@@ -17,5 +17,7 @@ MonoBehaviour:
   - "Gatito est\xE1ndar"
   - Standard Kitten
   iconoUI: {fileID: 21300000, guid: 15a9285aa1a74444298a6c57e24a6783, type: 3}
+  iconoRojo: {fileID: 21300000, guid: 710a1000c599949499892c33440e9cee, type: 3}
+  iconoAzul: {fileID: 21300000, guid: 9eed4b11c2f59b9429fbb9a86bb2b452, type: 3}
   prefab3DRojo: {fileID: 6326384973176415036, guid: 4b4df89c24da33d4899d5fdb3ef8f35f, type: 3}
   prefab3DAzul: {fileID: 6326384973176415036, guid: 8e9e7ad935a7cf04da7d67f84040c0ac, type: 3}

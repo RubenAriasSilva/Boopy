@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic; 
 using System.Linq;
+using UnityEngine.UI;
 
 namespace BoopyGame
 {    
@@ -15,9 +16,14 @@ namespace BoopyGame
         private bool colorJugador1; // 0 = rojo, 1 = azul
         private bool colorJugador2;
 
+        [Header("Imagenes Contenedor")]
+        public Image imagenGatitoJugador1;
+        public Image imagenGatoJugador1;
+        public Image imagenGatitoJugador2;
+        public Image imagenGatoJugador2;
+
         PartidaControlador partidaCtr;
 
-        // MODIFICADO: Los arrays ahora se declaran sin tamaño y se inicializan en Awake()
         private Transform[,] posicionesTablero;
         private GameObject[,] instanciasGatos;
 
@@ -45,6 +51,9 @@ namespace BoopyGame
                     posicionesTablero[fila, col] = posicionGO.transform;
                 }
             }
+
+            // Llamamos al método para actualizar los iconos de la UI
+            ActualizarIconosUI();
         }
 
         private void AsignarColor () // 0 = rojo, 1 = azul
@@ -59,14 +68,9 @@ namespace BoopyGame
             return random.Next() % 2 == 0;
         }
         
-        public void copiarTablero(TableroModelo tableroX)
+        // MÉTODO AUXILIAR para no repetir el código de búsqueda
+        private cosmeticosModelo ObtenerModeloCosmetico(int numeroJugador, bool esGatito)
         {
-            tableroModelo = tableroX;
-        }
-
-        private GameObject ObtenerPrefabCosmetico(int numeroJugador, bool esGatito, bool esAzul)
-        {
-            // 1. Obtener el ID del cosmético seleccionado desde nuestra clase estática
             string idCosmetico = "";
             if (numeroJugador == 1)
             {
@@ -79,24 +83,80 @@ namespace BoopyGame
 
             if (string.IsNullOrEmpty(idCosmetico))
             {
-                Debug.LogError($"No se encontró un ID de cosmético para el Jugador {numeroJugador} ({(esGatito ? "Gatito" : "Gato")}).");
+                Debug.LogError($"ID de cosmético no encontrado para Jugador {numeroJugador} ({(esGatito ? "Gatito" : "Gato")}).");
                 return null;
             }
 
-            // 2. Encontrar el modelo de cosmético en la lista correcta
             List<cosmeticosModelo> listaCorrecta = esGatito ? listaCosmeticosGatitos : listaCosmeticosGatos;
             cosmeticosModelo modelo = listaCorrecta.Find(c => c.id == idCosmetico);
 
             if (modelo == null)
             {
-                Debug.LogError($"No se encontró el modelo de cosmético con ID: {idCosmetico}");
-                return null;
+                Debug.LogError($"Modelo de cosmético con ID '{idCosmetico}' no encontrado en la lista de {(esGatito ? "Gatitos" : "Gatos")}.");
             }
 
-            // 3. Devolver el prefab correcto según el color del jugador
+            return modelo;
+        }
+
+        public void ActualizarIconosUI()
+        {
+            // --- JUGADOR 1 ---
+
+            // Gatito Jugador 1
+            var modeloGatitoJ1 = ObtenerModeloCosmetico(1, true);
+            if (modeloGatitoJ1 != null && imagenGatitoJugador1 != null)
+            {
+                // Elegimos el icono según el color del jugador 1
+                imagenGatitoJugador1.sprite = colorJugador1 ? modeloGatitoJ1.iconoAzul : modeloGatitoJ1.iconoRojo;
+            }
+
+            // Gato Jugador 1
+            var modeloGatoJ1 = ObtenerModeloCosmetico(1, false);
+            if (modeloGatoJ1 != null && imagenGatoJugador1 != null)
+            {
+                // Elegimos el icono según el color del jugador 1
+                imagenGatoJugador1.sprite = colorJugador1 ? modeloGatoJ1.iconoAzul : modeloGatoJ1.iconoRojo;
+            }
+
+            // --- JUGADOR 2 ---
+
+            // Gatito Jugador 2
+            var modeloGatitoJ2 = ObtenerModeloCosmetico(2, true);
+            if (modeloGatitoJ2 != null && imagenGatitoJugador2 != null)
+            {
+                // Elegimos el icono según el color del jugador 2
+                imagenGatitoJugador2.sprite = colorJugador2 ? modeloGatitoJ2.iconoAzul : modeloGatitoJ2.iconoRojo;
+            }
+
+            // Gato Jugador 2
+            var modeloGatoJ2 = ObtenerModeloCosmetico(2, false);
+            if (modeloGatoJ2 != null && imagenGatoJugador2 != null)
+            {
+                // Elegimos el icono según el color del jugador 2
+                imagenGatoJugador2.sprite = colorJugador2 ? modeloGatoJ2.iconoAzul : modeloGatoJ2.iconoRojo;
+            }
+        }
+
+        public void copiarTablero(TableroModelo tableroX)
+        {
+            tableroModelo = tableroX;
+        }
+
+        private GameObject ObtenerPrefabCosmetico(int numeroJugador, bool esGatito, bool esAzul)
+        {
+            // Reutilizamos el método auxiliar para obtener el modelo
+            cosmeticosModelo modelo = ObtenerModeloCosmetico(numeroJugador, esGatito);
+
+            if (modelo == null)
+            {
+                return null; // El error ya se logueó en el método auxiliar
+            }
+
+            // Devolver el prefab correcto según el color del jugador
             return esAzul ? modelo.prefab3DAzul : modelo.prefab3DRojo;
         }
 
+        // ... El resto de tu código (ActualizarTableroVisual, SeleccionarCasilla, Posiciones) se queda igual ...
         public void ActualizarTableroVisual()
         {
             if (tableroModelo == null) return; // Salida temprana si no hay modelo
@@ -147,10 +207,8 @@ namespace BoopyGame
                     // Instanciar el gato en su posición visual
                     if (prefab != null && posicionesTablero[fila, col] != null)
                     {
-                        // MODIFICADO: Usamos la posición y rotación que determinamos
                         Vector3 posicionInstancia = posicionesTablero[fila, col].position;
                         
-                        // Si es un gato grande, usamos su altura específica
                         if (valor == -2 || valor == 2)
                         {
                             posicionInstancia = Posiciones.GatoPosiciones[fila, col];

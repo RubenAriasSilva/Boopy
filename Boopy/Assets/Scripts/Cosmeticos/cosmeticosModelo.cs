@@ -12,6 +12,8 @@ public class cosmeticosModelo : ScriptableObject
 
     [Header("Recursos Visuales")]
     public Sprite iconoUI; // El icono para la tabla
+    public Sprite iconoRojo; 
+    public Sprite iconoAzul;
     public GameObject prefab3DRojo; // El prefab 3D que se instancia en el personaje
     public GameObject prefab3DAzul; // El prefab 3D que se instancia en el personaje
 }

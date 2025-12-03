@@ -9,6 +9,7 @@ namespace BoopyGame
 
         // Aqui se guarda el modo de juego para ejecutar la plantilla
         public ModoDeJuego ModoSeleccionado; 
+        public ConfiguracionPartida confPartidaActual;
 
         void Awake()
         {

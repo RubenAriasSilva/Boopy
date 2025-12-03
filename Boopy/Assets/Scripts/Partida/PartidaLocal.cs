@@ -103,6 +103,8 @@ namespace BoopyGame
                 }                
             }
 
+            controlador.ActualizarVista();
+
             // Si el juego termino, regresamos al menu principal
             // A futuro se puede agregar este metodo a un boton en la escena
             if (controlador.JuegoTerminado()) controlador.RegresarMenuPrincipal();

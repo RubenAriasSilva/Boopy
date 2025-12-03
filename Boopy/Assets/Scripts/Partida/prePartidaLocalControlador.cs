@@ -44,6 +44,8 @@ namespace BoopyGame
         private string nombreJugador1;
         private string nombreJugador2;
 
+        private ConfiguracionPartida confPartida = new ConfiguracionPartida();
+
         void Start()
         {
             // Simulamos que los jugadores tienen todos los cosméticos desbloqueados
@@ -73,6 +75,10 @@ namespace BoopyGame
             SeleccionDeCosmeticos.IdGatitoJugador2 = this.idGatitoEquipadoJugador2;
             SeleccionDeCosmeticos.IdGatoJugador2 = this.idGatoEquipadoJugador2;
 
+            confPartida.nombreJugador1 = nombreJugador1;
+            confPartida.nombreJugador2 = nombreJugador2;
+
+            GameManager.Instance.confPartidaActual = confPartida;
             GameManager.Instance.ModoSeleccionado = ModoDeJuego.Local;        
             SceneManager.LoadScene("partida");
         }

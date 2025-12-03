@@ -1,25 +1,26 @@
-using UnityEngine;
-
 namespace BoopyGame
 {
     public class Jugador
     {
         // Atributos privados
+        public string nombre;
         public int idJugador;
         public ContenedorDeGatitos contenedor;
         public bool haSeleccionadoGato;
         public int gatoSeleccionado; // 1 = pequeño, 2 = grande
 
         // Constructor
-        public Jugador(int tipo, int valGatito, int valGatote)
+        public Jugador(string n, int id, int valGatito, int valGatote)
         {
-            idJugador = tipo;
+            nombre = n;
+            idJugador = id;
             contenedor = new ContenedorDeGatitos(valGatito, valGatote);
             haSeleccionadoGato = false;
             gatoSeleccionado = 0;
         }
 
         // Propiedades (equivalentes a los getters)
+        public string Nombre => nombre;
         public int IdJugador => idJugador;
         public int ValorGatito => contenedor.ValorGatito;
         public int ValorGatote => contenedor.ValorGatote;

@@ -44,11 +44,14 @@ namespace BoopyGame
                 
         public void IniciarPartida(ModoDeJuego modo)
         {
+            ConfiguracionPartida confPart = GameManager.Instance.confPartidaActual;
+            string nombreJ1 = confPart.nombreJugador1;
+            string nombreJ2 = confPart.nombreJugador2;
             // Inicialización de los objetos
             tablero = new TableroModelo();
             motorDeReglas = new MotorDeReglas(tablero);
-            jugador1 = new Jugador((int)Jugadores.JUGADOR1, -1, -2);
-            jugador2 = new Jugador((int)Jugadores.JUGADOR2, 1, 2);
+            jugador1 = new Jugador(nombreJ1, (int)Jugadores.JUGADOR1, -1, -2);
+            jugador2 = new Jugador(nombreJ2, (int)Jugadores.JUGADOR2, 1, 2);
             jugadorActual = jugador1;
             turnoActual = Jugadores.JUGADOR1;
             contenedorJugador1.SetActive(true);
@@ -68,7 +71,7 @@ namespace BoopyGame
             {
                 contenedorVista = FindFirstObjectByType<ContenedorVista>();
             }
-            contenedorVista.Inicializar(this);
+            contenedorVista.Inicializar(this, jugador1, jugador2);
 
             // SELECCIONAR E INICIAR LA ESTRATEGIA
             switch (modo)
@@ -261,7 +264,7 @@ namespace BoopyGame
         public void ActualizarVista()
         {
             tableroVista.ActualizarTableroVisual();
-            contenedorVista.ActualizarContenedor(jugador1.contenedor.CantGatosPequenos, jugador1.contenedor.CantGatosGrandes, jugador2.contenedor.CantGatosPequenos, jugador2.contenedor.CantGatosGrandes);
+            contenedorVista.actualizarcontenedores();
         }
     }
 }

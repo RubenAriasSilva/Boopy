@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 117122211}
   - component: {fileID: 117122210}
   m_Layer: 5
-  m_Name: textoJugador
+  m_Name: textoJugador2Actual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1355,7 +1355,7 @@ GameObject:
   - component: {fileID: 247998613}
   - component: {fileID: 247998612}
   m_Layer: 5
-  m_Name: textoJugador
+  m_Name: textoJugador1Actual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1369,7 +1369,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247998610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.65}
+  m_LocalPosition: {x: 0, y: 0, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1377,7 +1377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5.7199993}
+  m_AnchoredPosition: {x: 0, y: -7.3}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &247998612
@@ -5468,6 +5468,10 @@ MonoBehaviour:
   gatosJugador2: {fileID: 172595703}
   gatitosJugador2Contrincante: {fileID: 1972306568}
   gatosJugador2Contrincante: {fileID: 814009861}
+  textoJugador1Actual: {fileID: 247998612}
+  textoJugador2Actual: {fileID: 117122210}
+  textoJugador2: {fileID: 2084380863}
+  textoJugador1: {fileID: 127509872}
 --- !u!114 &1062939306
 MonoBehaviour:
   m_ObjectHideFlags: 0

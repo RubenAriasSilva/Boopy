@@ -28,6 +28,8 @@ namespace BoopyGame
         private bool estaMoviendo = false;
         private int ganador = 0;
 
+        public GameObject ajustes;
+
         ModoDeJuego modo;
 
         void Start()
@@ -265,6 +267,16 @@ namespace BoopyGame
         {
             tableroVista.ActualizarTableroVisual();
             contenedorVista.actualizarcontenedores();
+        }
+
+        public void AbrirAjustes()
+        {
+            ajustes.SetActive(true);
+        }
+
+        public void CerrarAjustes()
+        {
+            ajustes.SetActive(false);
         }
     }
 }

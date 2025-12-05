@@ -36,10 +36,10 @@ public class MenuControlador : MonoBehaviour
         SceneManager.LoadScene("prePartidaLocal");
     }
 
-    public void JugarPartidaMultijugador()
-    {
-        SceneManager.LoadScene("prePartidaEnLinea");
-    }
+    //public void JugarPartidaMultijugador()
+    //{
+    //    SceneManager.LoadScene("prePartidaEnLinea");
+    //}
 
     public void JugarPartidaVsIA()
     {

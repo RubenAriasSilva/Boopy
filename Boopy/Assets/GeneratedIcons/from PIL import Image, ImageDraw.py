@@ -199,8 +199,7 @@ def main():
     # Define aquí todos los pares de imágenes que quieres procesar
     # Formato: [(imagen_a_path, imagen_b_path, ruta_salida), ...]
     pares_imagenes = [
-        ('GatoPrefab1_icon.png', 'GatoPrefab2_icon.png', 'GatoCosmetico1.png'),
-        ('GatoPrefab3_icon.png', 'GatoPrefab4_icon.png', 'GatoCosmetico2.png'),
+        ('GatitoPrefab3_icon.png', 'GatitoPrefab4_icon.png', 'GatitoCosmetico2.png')
         # Añade más pares aquí si es necesario
         # ('imagen5_a.png', 'imagen5_b.png', 'resultado5.png'),
     ]

@@ -10,16 +10,13 @@ EditorBuildSettings:
     guid: c7ecd6ace1615054397c078d5f08be2a
   - enabled: 1
     path: Assets/Scenes/menuPrincipal.unity
-    guid: e54a78578a26a624599f7ec486d0f39a
+    guid: 9e9ecbe174fed47458b803613154235b
   - enabled: 1
     path: Assets/Scenes/partida/prePartidaLocal.unity
     guid: 274efaf627db27b46b4bcbfbbfad03eb
   - enabled: 1
     path: Assets/Scenes/partida/partida.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/partida/prePartidaEnLinea.unity
-    guid: 2bc43de68cc8007468fddf03ebc6b736
   - enabled: 1
     path: Assets/Scenes/perfil.unity
     guid: 4c5f806c815c3a34493ca946d17ab076

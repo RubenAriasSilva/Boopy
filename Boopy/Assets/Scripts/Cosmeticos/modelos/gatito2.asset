@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::cosmeticosModelo
   id: gatitoSkin2
   nombresPorIdioma:
-  - Gatito de cristal
-  - Glass Kitten
+  - Gatito de metal
+  - Metal kitten
   iconoUI: {fileID: 21300000, guid: 92fa8f7f183d2e2479fee74b622dae4d, type: 3}
   iconoRojo: {fileID: 21300000, guid: 40212f31e738769438cf29231e47b0d9, type: 3}
   iconoAzul: {fileID: 21300000, guid: 2508d1e6d63a38947b61adecbdae1c44, type: 3}

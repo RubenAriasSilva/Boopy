@@ -566,6 +566,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoopyGame.GameManager
   ModoSeleccionado: 4
+  confPartidaActual:
+    nombreJugador1: 
+    nombreJugador2: 
 --- !u!4 &354669991
 Transform:
   m_ObjectHideFlags: 0
@@ -783,6 +786,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8d07fd140ca664a8a82e155e8f918a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoopyGame.MenuControlador
+  cosmeticosGatitos:
+  - {fileID: 11400000, guid: 1d45a15801a2c874097966e742f31973, type: 2}
+  - {fileID: 11400000, guid: 763964eee5236234eb53db95406fd262, type: 2}
+  cosmeticosGatos:
+  - {fileID: 11400000, guid: cfc5b75cc90b70f46ba5ada68789309e, type: 2}
+  - {fileID: 11400000, guid: 32ccee4f02af19c42b60ca13c44d5860, type: 2}
 --- !u!1 &536413341
 GameObject:
   m_ObjectHideFlags: 0

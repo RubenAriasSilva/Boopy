@@ -2,63 +2,66 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class AjustesControlador : MonoBehaviour
+namespace BoopyGame
 {
-    public GameObject idiomas;
-
-    public Toggle toggleEspanol; 
-    public Toggle toggleIngles;
-
-    void Start()
+    public class AjustesControlador : MonoBehaviour
     {
-        int idiomaGuardado = PlayerPrefs.GetInt("IdiomaSeleccionado", 0);
-        
-        if (idiomaGuardado == 0)
+        public GameObject idiomas;
+
+        public Toggle toggleEspanol; 
+        public Toggle toggleIngles;
+
+        void Start()
         {
-            toggleEspanol.isOn = true;
+            int idiomaGuardado = PlayerPrefs.GetInt("IdiomaSeleccionado", 0);
+            
+            if (idiomaGuardado == 0)
+            {
+                toggleEspanol.isOn = true;
+            }
+            else
+            {
+                toggleIngles.isOn = true;
+            }
         }
-        else
+
+        public void AcercaDe ()
         {
-            toggleIngles.isOn = true;
+            Debug.Log("Acerca de");
         }
-    }
 
-    public void AcercaDe ()
-    {
-        Debug.Log("Acerca de");
-    }
-
-    public void AbrirIdiomas ()
-    {
-        idiomas.SetActive(true);
-    }
-
-    public void CerrarIdiomas ()
-    {
-        idiomas.SetActive(false);
-    }
- 
-    public void SelecionarIdioma(bool idioma) // 0 = español, 1 = ingles
-    {
-        if (!idioma)
+        public void AbrirIdiomas ()
         {
-            PlayerPrefs.SetInt("IdiomaSeleccionado", 0);
+            idiomas.SetActive(true);
         }
-        else
+
+        public void CerrarIdiomas ()
         {
-            PlayerPrefs.SetInt("IdiomaSeleccionado", 1);
+            idiomas.SetActive(false);
         }
-        PlayerPrefs.Save(); 
-    }
+    
+        public void SelecionarIdioma(bool idioma) // 0 = español, 1 = ingles
+        {
+            if (!idioma)
+            {
+                PlayerPrefs.SetInt("IdiomaSeleccionado", 0);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("IdiomaSeleccionado", 1);
+            }
+            PlayerPrefs.Save(); 
+        }
 
-    public void AlMoverScroll(float valor)
-    {
-        Debug.Log("Valor actual: " + valor);
-    }
+        public void AlMoverScroll(float valor)
+        {
+            Debug.Log("Valor actual: " + valor);
+        }
 
-    public void Regresar ()
-    {
-        SceneManager.LoadScene("menuPrincipal");
-    }
+        public void Regresar ()
+        {
+            SceneManager.LoadScene("menuPrincipal");
+        }
 
+    }
 }

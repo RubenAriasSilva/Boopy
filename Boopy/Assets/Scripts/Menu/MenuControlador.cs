@@ -8,6 +8,26 @@ namespace BoopyGame
 {
 public class MenuControlador : MonoBehaviour
 {
+    public List<cosmeticosModelo> cosmeticosGatitos;
+    public List<cosmeticosModelo> cosmeticosGatos;
+
+    private List<string> idsCosmeticosGatitosDesbloqueados;
+    private List<string> idsCosmeticosGatosDesbloqueados;
+
+    void Start()
+    {
+        // 1. Cargar los cosméticos del Jugador 1 desde PlayerPrefs (igual que antes)
+        string idGatitoJ1 = PlayerPrefs.GetString("idGatitoEquipado", "");
+        string idGatoJ1 = PlayerPrefs.GetString("idGatoEquipado", "");
+
+        // 2. Asignarlos a la clase estática
+        SeleccionDeCosmeticos.IdGatitoJugador1 = idGatitoJ1;
+        SeleccionDeCosmeticos.IdGatoJugador1 = idGatoJ1;
+
+        SeleccionDeCosmeticos.IdGatitoJugador2 = idGatitoJ1;
+        SeleccionDeCosmeticos.IdGatoJugador2 = idGatoJ1;
+    }
+
     public void JugarPartidaLocal()
     {
         //Debug.Log("Local");
@@ -29,7 +49,6 @@ public class MenuControlador : MonoBehaviour
     public void JugarPartidaTutorial()
     {
         Debug.Log("Tutorial");
-
         GameManager.Instance.ModoSeleccionado = ModoDeJuego.Tutorial;
         SceneManager.LoadScene("partida");
     }

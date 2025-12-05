@@ -10,15 +10,17 @@ namespace BoopyGame
         private PartidaControlador controlador;
         private TableroModelo tablero;
         private MotorDeReglas motor;
+        private PartidaVista partidaVista;
         private List<PasoTutorial> pasos;
         private int indicePasoActual = 0;
         private bool accionJugadorRealizada = false;
 
-        public void Iniciar(PartidaControlador controlador, TableroModelo tablero, MotorDeReglas motor)
+        public void Iniciar(PartidaControlador controlador, TableroModelo tablero, MotorDeReglas motor, PartidaVista partidaVista)
         {
             this.controlador = controlador;
             this.tablero = tablero;
             this.motor = motor;
+            this.partidaVista = partidaVista;
             CrearPasos();
             EjecutarPaso();
         }
@@ -251,7 +253,7 @@ namespace BoopyGame
             // Paso 17: Jugador pone el ultimo gatito en coord estrategica y gana con 8 gatos dentro
             pasos.Add( new PasoTutorial
             {
-                mensajeInstruccion = "Pon un gatote en la casilla 3,4, esto no sacara ninguno de tus gatos y hará que ganes",
+                mensajeInstruccion = "Pon un gatote en la casilla 4,5, esto no sacara ninguno de tus gatos y hará que ganes",
                 requiereSeleccionarFicha = true,
                 tipoFichaEsperada = -1,
                 requiereColocarFicha = true,
@@ -376,7 +378,7 @@ namespace BoopyGame
         private IEnumerator SalirDespuesDeTiempo()
         {
              yield return new WaitForSeconds(3f);
-             controlador.RegresarMenuPrincipal();
+             partidaVista.RegresarMenuPrincipal();
         }
 
         public void Actualizar()

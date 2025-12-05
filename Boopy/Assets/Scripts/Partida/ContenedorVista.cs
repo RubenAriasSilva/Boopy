@@ -28,12 +28,6 @@ namespace BoopyGame
         public TextMeshProUGUI textoJugador2;
         public TextMeshProUGUI textoJugador1;
 
-        [Header("Toggles de Selección")]
-        public Toggle toggleGatitoChicoP1;
-        public Toggle toggleGatoteP1;
-        public Toggle toggleGatitoChicoP2;
-        public Toggle toggleGatoteP2;
-
         public void Inicializar(PartidaControlador controlador, Jugador j1, Jugador j2)
         {
             partidaControlador = controlador;
@@ -41,32 +35,36 @@ namespace BoopyGame
             jugador2 = j2;
         }
 
-        public void Update()
+        public void onClickGatoChicoJ1()
         {
-            if (partidaControlador != null && toggleGatitoChicoP1.isOn) // (jugador 1, tipo 1)
+            if (partidaControlador != null) // (jugador 1, tipo 1)
             {
                 partidaControlador.ClickEnContenedor(1, 1);
             } 
-            if (partidaControlador != null && toggleGatoteP1.isOn)  // (jugador 1, tipo 2)
+        }
+
+        public void onClickGatoteJ1()
+        {
+            if (partidaControlador != null)  // (jugador 1, tipo 2)
             {
                 partidaControlador.ClickEnContenedor(1, 2);
             } 
-            if (partidaControlador != null && toggleGatitoChicoP2.isOn)  // (jugador 2, tipo 1)
+        }
+
+        public void onClickGatoChicoJ2()
+        {
+            if (partidaControlador != null)  // (jugador 2, tipo 1)
             {
                 partidaControlador.ClickEnContenedor(2, 1);
             } 
-            if (partidaControlador != null && toggleGatoteP2.isOn) 
+        }
+
+        public void onClickGatoteJ2()
+        {
+            if (partidaControlador != null) 
             {
                 partidaControlador.ClickEnContenedor(2, 2);
             }
-        }
-
-        public void ResetToggles()
-        {
-            toggleGatitoChicoP1.isOn = false;
-            toggleGatoteP1.isOn = false;
-            toggleGatitoChicoP2.isOn = false;
-            toggleGatoteP2.isOn = false;
         }
 
         public void actualizarcontenedores()

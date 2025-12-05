@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BoopyGame
 {
@@ -30,7 +31,7 @@ namespace BoopyGame
             ModoSeleccionado = ModoDeJuego.Ninguno;
             
             // Cargar la escena 0 (o como se llame tu menú)
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            SceneManager.LoadScene("menuPrincipal");
         }
 
     }

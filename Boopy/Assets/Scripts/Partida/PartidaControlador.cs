@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 namespace BoopyGame
 {
     public class PartidaControlador : MonoBehaviour
@@ -10,6 +11,7 @@ namespace BoopyGame
         public TableroVista tableroVista;
         public ContenedorVista contenedorVista;
         public PartidaTutorialVista tutorialVista;
+        public PartidaVista partidaVista;
 
         public GameObject botonContinuar;
 
@@ -27,8 +29,6 @@ namespace BoopyGame
         private bool juegoTerminado = false;
         private bool estaMoviendo = false;
         private int ganador = 0;
-
-        public GameObject ajustes;
 
         ModoDeJuego modo;
 
@@ -75,6 +75,12 @@ namespace BoopyGame
             }
             contenedorVista.Inicializar(this, jugador1, jugador2);
 
+            if (partidaVista == null)
+            {
+                partidaVista = FindFirstObjectByType<PartidaVista>();
+            }
+            partidaVista.Inicializar(this);
+
             // SELECCIONAR E INICIAR LA ESTRATEGIA
             switch (modo)
             {
@@ -96,7 +102,7 @@ namespace BoopyGame
             }
             
             // Inicia la estrategia seleccionada
-            estrategiaActual.Iniciar(this, tablero, motorDeReglas);
+            estrategiaActual.Iniciar(this, tablero, motorDeReglas, partidaVista);
             Debug.Log($"Partida iniciada en modo: {modo}");
             ActualizarVista();
         }
@@ -120,7 +126,7 @@ namespace BoopyGame
         public void ClickEnContenedor(int idJugador ,int tipoFicha)
         {
             if((int)turnoActual != idJugador) {
-                Debug.Log("No es turno de este jugador");
+                Debug.Log("No es turno de este jugador " + (int)turnoActual + " " + idJugador);
                 return;
             }
 
@@ -202,19 +208,6 @@ namespace BoopyGame
             }
         }
 
-        public void RegresarMenuPrincipal()
-        {
-            Debug.Log("Saliendo de la partida...");
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.CargarMenuPrincipal();
-            }
-            else
-            {             
-                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-            }
-        }
-
         public Jugador GetJugadorActual() => jugadorActual;
         public Jugador GetJugador1() => jugador1;
         public Jugador GetJugador2() => jugador2;
@@ -267,16 +260,6 @@ namespace BoopyGame
         {
             tableroVista.ActualizarTableroVisual();
             contenedorVista.actualizarcontenedores();
-        }
-
-        public void AbrirAjustes()
-        {
-            ajustes.SetActive(true);
-        }
-
-        public void CerrarAjustes()
-        {
-            ajustes.SetActive(false);
         }
     }
 }

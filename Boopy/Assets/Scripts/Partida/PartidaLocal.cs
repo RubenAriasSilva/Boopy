@@ -9,13 +9,15 @@ namespace BoopyGame
         private PartidaControlador controlador;
         private TableroModelo tablero;
         private MotorDeReglas motorDeReglas;
+        private PartidaVista partidaVista;
 
         // Constructor
-        public void Iniciar(PartidaControlador controlador, TableroModelo tablero, MotorDeReglas motor)
+        public void Iniciar(PartidaControlador controlador, TableroModelo tablero, MotorDeReglas motor, PartidaVista partidaVista)
         {
             this.controlador = controlador;
             this.tablero = tablero;
             this.motorDeReglas = motor;
+            this.partidaVista = partidaVista;
         }
 
         public void ManejarSeleccionFicha(int tipoFicha)
@@ -79,6 +81,8 @@ namespace BoopyGame
             {
                 Debug.Log("Gano el jugador " + jugadorActual.IdJugador + "Todos sus gatos dentro");
                 controlador.SetJuegoTerminado(jugadorActual.IdJugador);
+                yield return new WaitForSeconds(0.6f);
+                partidaVista.TerminarPartida(jugadorActual.Nombre);
             }
 
             List<ResultadoLinea> resultados = motorDeReglas.RevisarLineas();
@@ -92,6 +96,8 @@ namespace BoopyGame
                         jugadorGanador = (token < 0) ? controlador.GetJugador1() : controlador.GetJugador2();
                         Debug.Log("Gano el jugador " + jugadorGanador.IdJugador);
                         controlador.SetJuegoTerminado(jugadorGanador.IdJugador);
+                        yield return new WaitForSeconds(0.6f);
+                        partidaVista.TerminarPartida(jugadorGanador.Nombre);
                     }
                     else if (resultado.tipo == ResultadoLinea.Tipo.LINEA_NORMAL)
                     {
@@ -107,7 +113,7 @@ namespace BoopyGame
 
             // Si el juego termino, regresamos al menu principal
             // A futuro se puede agregar este metodo a un boton en la escena
-            if (controlador.JuegoTerminado()) controlador.RegresarMenuPrincipal();
+            // if (controlador.JuegoTerminado()) partidaVista.RegresarMenuPrincipal();
 
             if (!controlador.JuegoTerminado())
             {

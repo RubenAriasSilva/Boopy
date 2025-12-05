@@ -1,57 +1,91 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class registrarseControlador : MonoBehaviour
+namespace BoopyGame
 {
-    public GameObject idiomas;
-
-    public Toggle toggleEspanol; 
-    public Toggle toggleIngles;
-
-    void Start()
+    public class registrarseControlador : MonoBehaviour
     {
-        int idiomaGuardado = PlayerPrefs.GetInt("IdiomaSeleccionado", 0);
-        
-        if (idiomaGuardado == 0)
+        public GameObject idiomas;
+
+        public TMP_InputField nickName_input;
+        public TMP_InputField correo_input;
+        public TMP_InputField password_input;
+        public TMP_InputField password2_input;
+
+        private string nickName;
+        private string correo;
+        private string password;
+        private string password2;
+
+        public Toggle toggleEspanol; 
+        public Toggle toggleIngles;
+
+        void Start()
         {
-            toggleEspanol.isOn = true;
+            int idiomaGuardado = PlayerPrefs.GetInt("IdiomaSeleccionado", 0);
+            
+            if (idiomaGuardado == 0)
+            {
+                toggleEspanol.isOn = true;
+            }
+            else
+            {
+                toggleIngles.isOn = true;
+            }
         }
-        else
+
+        public void AbrirIdiomas ()
         {
-            toggleIngles.isOn = true;
+            idiomas.SetActive(true);
         }
-    }
 
-    public void AbrirIdiomas ()
-    {
-        idiomas.SetActive(true);
-    }
-
-    public void CerrarIdiomas ()
-    {
-        idiomas.SetActive(false);
-    }
-
-    public void SelecionarIdioma(bool idioma) // 0 = español, 1 = ingles
-    {
-        if (!idioma)
+        public void CerrarIdiomas ()
         {
-            PlayerPrefs.SetInt("IdiomaSeleccionado", 0);
+            idiomas.SetActive(false);
         }
-        else
+
+        public void SelecionarIdioma(bool idioma) // 0 = español, 1 = ingles
         {
-            PlayerPrefs.SetInt("IdiomaSeleccionado", 1);
+            if (!idioma)
+            {
+                PlayerPrefs.SetInt("IdiomaSeleccionado", 0);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("IdiomaSeleccionado", 1);
+            }
+            PlayerPrefs.Save(); 
         }
-        PlayerPrefs.Save(); 
-    }
 
-    public void Registrase ()
-    {
-        Debug.Log("Registrase");
-    }
+        public async void Registrase ()
+        {
+            nickName = nickName_input.text;
+            correo = correo_input.text;
+            password = password_input.text;
+            password2 = password2_input.text;
 
-    public void IniciarSesion ()
-    {
-        Debug.Log("Iniciar sesion");
+            if(password != password2)
+            {
+              Debug.Log("Contrasenias distintas");
+              return;  
+            } 
+
+            bool exito = await GameManager_DB.Instance.CrearUsuario(nickName, correo, password);
+            
+            if (exito)
+            {
+                Debug.Log("¡Cuenta creada! Cambiando de escena...");
+            }
+            else
+            {
+                Debug.Log("Hubo un error al registrarse. Intenta de nuevo.");
+            }            
+        }
+
+        public void IniciarSesion ()
+        {
+            Debug.Log("Iniciar sesion");
+        }
     }
 }

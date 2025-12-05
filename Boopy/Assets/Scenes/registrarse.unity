@@ -1076,6 +1076,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::registrarseControlador
   idiomas: {fileID: 1914078329}
+  nickName_input: {fileID: 1947713247}
+  correo_input: {fileID: 532000113}
+  password_input: {fileID: 1051360999}
+  password2_input: {fileID: 1836060410}
   toggleEspanol: {fileID: 634149701}
   toggleIngles: {fileID: 1977600244}
 --- !u!1 &536413341

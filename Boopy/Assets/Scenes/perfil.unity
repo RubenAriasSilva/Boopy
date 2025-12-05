@@ -634,6 +634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878e51b68f946c7469c4777a84f3cdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::perfilControlador
+  nombre: 
+  nombrePerfil: {fileID: 1624831452}
 --- !u!114 &532101369
 MonoBehaviour:
   m_ObjectHideFlags: 0

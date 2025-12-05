@@ -1,20 +1,34 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
-public class perfilControlador : MonoBehaviour
+namespace BoopyGame
 {
-    public void CambiarFoto()
+    public class perfilControlador : MonoBehaviour
     {
-        Debug.Log("Cambiar foto");
-    }
+        public string nombre;
+        public TextMeshProUGUI nombrePerfil;
 
-    public void CambiarNombre()
-    {
-        Debug.Log("Cambiar nombre");
-    }
+        void Start()
+        {
+            nombre = GameManager_DB.Instance.usuarioActual.Nombre;
+            nombrePerfil.text = nombre;
+        }
 
-    public void Regresar ()
-    {
-        SceneManager.LoadScene("menuPrincipal");
+
+        public void CambiarFoto()
+        {
+            Debug.Log("Cambiar foto");
+        }
+
+        public void CambiarNombre()
+        {
+            Debug.Log("Cambiar nombre");
+        }
+
+        public void Regresar ()
+        {
+            SceneManager.LoadScene("menuPrincipal");
+        }
     }
 }

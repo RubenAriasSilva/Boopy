@@ -10,6 +10,6 @@ public class InicioControlador : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         // Cambia la escena
-        SceneManager.LoadScene("menuPrincipal");
+        SceneManager.LoadScene("registrarse");
     }
 }

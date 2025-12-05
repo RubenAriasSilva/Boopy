@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 namespace BoopyGame
 {
@@ -76,6 +77,7 @@ namespace BoopyGame
             if (exito)
             {
                 Debug.Log("¡Cuenta creada! Cambiando de escena...");
+                SceneManager.LoadScene("menuPrincipal");
             }
             else
             {
@@ -85,7 +87,7 @@ namespace BoopyGame
 
         public void IniciarSesion ()
         {
-            Debug.Log("Iniciar sesion");
+            SceneManager.LoadScene("iniciarSesion");
         }
     }
 }

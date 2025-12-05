@@ -915,6 +915,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::iniciarSesionControlador
   idiomas: {fileID: 173484710}
+  correo_input: {fileID: 532000113}
+  password_input: {fileID: 1051360999}
   toggleEspanol: {fileID: 1105406416}
   toggleIngles: {fileID: 429648182}
 --- !u!114 &532101369
@@ -1037,7 +1039,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 532101368}
-        m_TargetAssemblyTypeName: iniciarSesionControlador, Assembly-CSharp
+        m_TargetAssemblyTypeName: BoopyGame.iniciarSesionControlador, Assembly-CSharp
         m_MethodName: IniciarSesion
         m_Mode: 1
         m_Arguments:

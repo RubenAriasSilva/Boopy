@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using Supabase;
 using System.Threading.Tasks;
@@ -9,6 +10,8 @@ namespace BoopyGame
     {
         // Singleton: Para poder llamarlo desde cualquier lado con GameManager_DB.Instance
         public static GameManager_DB Instance;
+        
+        public UsuarioModelo usuarioActual { get; set; }
 
         public Supabase.Client client;
 
@@ -70,5 +73,38 @@ namespace BoopyGame
                 return false;
             }
         }
+
+        public async Task<bool> ValidarLogin(string correoInput, string passwordInput)
+        {
+            try
+            {                
+                var respuesta = await client.From<UsuarioModelo>()
+                    .Select("*")
+                    .Where(u => u.Correo == correoInput && u.Password == passwordInput)
+                    .Get();
+
+                var usuarioEncontrado = respuesta.Model;
+
+                if (usuarioEncontrado != null)
+                {
+                    Debug.Log($"¡Login Exitoso! Bienvenido {usuarioEncontrado.Nombre} (ID: {usuarioEncontrado.Id})");
+
+                    usuarioActual = usuarioEncontrado;
+                    
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("Correo o contraseña incorrectos.");
+                    return false;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error en el Login: " + e.Message);
+                return false;
+            }
+        }
+
     }
 }

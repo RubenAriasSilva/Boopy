@@ -27,9 +27,6 @@ EditorBuildSettings:
     path: Assets/Scenes/perfil.unity
     guid: 4c5f806c815c3a34493ca946d17ab076
   - enabled: 1
-    path: Assets/Scenes/clasificaciones.unity
-    guid: d2f1df23500c05142bccd5f443200e86
-  - enabled: 1
     path: Assets/Scenes/cosmeticos.unity
     guid: d092e48cc06a1e14fa0feb4b385d5696
   - enabled: 1

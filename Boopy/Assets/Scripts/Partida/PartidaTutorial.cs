@@ -14,6 +14,7 @@ namespace BoopyGame
         private List<PasoTutorial> pasos;
         private int indicePasoActual = 0;
         private bool accionJugadorRealizada = false;
+        
 
         public void Iniciar(PartidaControlador controlador, TableroModelo tablero, MotorDeReglas motor, PartidaVista partidaVista)
         {
@@ -96,7 +97,7 @@ namespace BoopyGame
             // Paso 5: Jugador pone un gato en 5,3 para sacar al gato del tablero
             pasos.Add( new PasoTutorial
             {
-                mensajeInstruccion = "Empuja al gatito enemigo fuea del tablero!, pon una gatito en 5,3",
+                mensajeInstruccion = "Empuja al gatito enemigo fuera del tablero!, pon una gatito en 5,3",
                 requiereSeleccionarFicha = true,
                 tipoFichaEsperada = -1,
                 requiereColocarFicha = true,
@@ -110,7 +111,7 @@ namespace BoopyGame
             // Paso 6: Poner gato enemigo en 2,4
             pasos.Add( new PasoTutorial
             {
-                mensajeInstruccion = "Han aparecido más gatos enemijos rodeando a uno de tus gatitos!",
+                mensajeInstruccion = "Han aparecido más gatos enemigos rodeando a uno de tus gatitos!",
                 accionDeConfiguracion = () =>
                 {
                     controlador.tablero.BorrarGato(4,2);
@@ -221,7 +222,7 @@ namespace BoopyGame
             // Paso 15: Jugador pone gatote en 5,4 para hacer linea ganadora
             pasos.Add( new PasoTutorial
             {
-                mensajeInstruccion = "Pon un gatote en la casilla 5,4",
+                mensajeInstruccion = "Pon un gatote en la casilla 5,4 para ganar",
                 requiereSeleccionarFicha = true,
                 tipoFichaEsperada = -2,
                 requiereColocarFicha = true,
@@ -268,23 +269,32 @@ namespace BoopyGame
 
         public void SiguientePaso()
         {
-            PasoTutorial paso = pasos[indicePasoActual];
+            // Si el tutorial ya terminó, no hacemos nada.
+            if (indicePasoActual >= pasos.Count) return;
 
-            if((paso.requiereColocarFicha || paso.requiereSeleccionarFicha) && !accionJugadorRealizada){
-                return;
-            }            
-            indicePasoActual++;
-            if(indicePasoActual >= pasos.Count)
+            PasoTutorial pasoActual = pasos[indicePasoActual];
+
+            if ((pasoActual.requiereColocarFicha || pasoActual.requiereSeleccionarFicha) && !accionJugadorRealizada)
             {
+                Debug.Log("Esperando la acción del jugador para el paso " + indicePasoActual);
+                return;
+            }
+
+            indicePasoActual++;
+
+            if (indicePasoActual >= pasos.Count)
+            {
+                Debug.Log("¡El tutorial ha finalizado!");
                 FinalizarTutorial();
                 return;
             }
+
             EjecutarPaso();
         }
 
         private void EjecutarPaso()
         {
-            Debug.Log("Paso: " + indicePasoActual);
+            Debug.Log("Paso: " + indicePasoActual + " " + pasos.Count);
             PasoTutorial paso = pasos[indicePasoActual];
             
             controlador.MostrarMensaje(paso.mensajeInstruccion);

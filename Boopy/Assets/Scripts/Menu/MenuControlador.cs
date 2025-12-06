@@ -44,6 +44,8 @@ public class MenuControlador : MonoBehaviour
     public void JugarPartidaVsIA()
     {
         Debug.Log("vs IA");
+        GameManager.Instance.ModoSeleccionado = ModoDeJuego.VsIA;
+        SceneManager.LoadScene("partida");
     }
 
     public void JugarPartidaTutorial()

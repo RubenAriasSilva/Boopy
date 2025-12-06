@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 namespace BoopyGame
 {
     public class PartidaControlador : MonoBehaviour
@@ -14,9 +16,14 @@ namespace BoopyGame
         public PartidaVista partidaVista;
 
         public GameObject botonContinuar;
+        public GameObject msgTutorial;
 
         public GameObject contenedorJugador1;
         public GameObject contenedorJugador2;
+
+        public Slider volumeSlider;
+
+        public TextMeshProUGUI mensajeObjeto;
 
         public TableroModelo tablero { get; private set; }
         public MotorDeReglas motorDeReglas { get; private set; }
@@ -32,11 +39,22 @@ namespace BoopyGame
 
         ModoDeJuego modo;
 
+        void Awake()
+        {
+            float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+            
+            if (volumeSlider != null)
+            {
+                volumeSlider.value = savedVolume;
+            }
+        }
+
         void Start()
         {
             //Recuperamos la elección guardada en el GameManager
             modo = GameManager.Instance.ModoSeleccionado;
             botonContinuar.SetActive(false);
+            msgTutorial.SetActive(false);
             // Nos auto-configuramos con esa estrategia
             IniciarPartida(modo);
         }
@@ -89,6 +107,7 @@ namespace BoopyGame
                     break;
                 case ModoDeJuego.Tutorial:
                     botonContinuar.SetActive(true);
+                    msgTutorial.SetActive(true);
                     estrategiaActual = new EstrategiaTutorial();
                     if(tutorialVista == null)
                     {
@@ -97,7 +116,7 @@ namespace BoopyGame
                     tutorialVista.Inicializar(this);
                     break;
                 case ModoDeJuego.VsIA:
-                    // estrategiaActual = new EstrategiaVsIA();
+                    estrategiaActual = new PartidaVsIA();
                     break;                
             }
             
@@ -252,7 +271,8 @@ namespace BoopyGame
 
         public void MostrarMensaje(string msg)
         {
-            Debug.Log(msg);
+            //Debug.Log(msg);
+            mensajeObjeto.text = msg;
         }
 
         // Helper para forzar actualización visual
@@ -260,6 +280,22 @@ namespace BoopyGame
         {
             tableroVista.ActualizarTableroVisual();
             contenedorVista.actualizarcontenedores();
+        }
+
+        public void AlMoverScroll(float valor)
+        {
+            Debug.Log("Valor actual: " + valor);
+
+            // Buscamos la instancia estática de nuestro MusicManager y llamamos a su función SetVolume.
+            // El 'valor' que recibe la función es el valor actual del Slider (de 0 a 1).
+            if (MusicManager.instance != null)
+            {
+                MusicManager.instance.SetVolume(valor);
+            }
+            else
+            {
+                Debug.LogWarning("MusicManager no encontrado. ");
+            }
         }
     }
 }

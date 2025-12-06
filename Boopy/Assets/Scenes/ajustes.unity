@@ -816,6 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   idiomas: {fileID: 1225612576}
+  volumeSlider: {fileID: 1695211369}
   toggleEspanol: {fileID: 1111216875}
   toggleIngles: {fileID: 62620453}
 --- !u!114 &532101369

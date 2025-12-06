@@ -7,9 +7,20 @@ namespace BoopyGame
     public class AjustesControlador : MonoBehaviour
     {
         public GameObject idiomas;
+        public Slider volumeSlider;
 
         public Toggle toggleEspanol; 
         public Toggle toggleIngles;
+
+        void Awake()
+        {
+            float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+            
+            if (volumeSlider != null)
+            {
+                volumeSlider.value = savedVolume;
+            }
+        }
 
         void Start()
         {
@@ -56,6 +67,17 @@ namespace BoopyGame
         public void AlMoverScroll(float valor)
         {
             Debug.Log("Valor actual: " + valor);
+
+            // Buscamos la instancia estática de nuestro MusicManager y llamamos a su función SetVolume.
+            // El 'valor' que recibe la función es el valor actual del Slider (de 0 a 1).
+            if (MusicManager.instance != null)
+            {
+                MusicManager.instance.SetVolume(valor);
+            }
+            else
+            {
+                Debug.LogWarning("MusicManager no encontrado. ");
+            }
         }
 
         public void Regresar ()

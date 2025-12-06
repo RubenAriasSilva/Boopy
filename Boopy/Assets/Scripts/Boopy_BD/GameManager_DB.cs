@@ -47,7 +47,7 @@ namespace BoopyGame
         }
 
         // --- AQUÍ VA TU FUNCIÓN ---
-        public async Task<bool> CrearUsuario(string nombre, string correo, string password)
+        public async Task<bool> CrearUsuario(string nombre, string correo, string password, int idIdioma)
         {
             try
             {
@@ -57,9 +57,9 @@ namespace BoopyGame
                     Correo = correo,
                     Password = password,                    
                     
-                    GatitoId = 1, 
+                    GatitoId = 1,
                     GatoteId = 1,
-                    IdiomaSeleccionadoId = 1
+                    IdiomaSeleccionadoId = idIdioma
                 };
 
                 await client.From<UsuarioModelo>().Insert(nuevoUsuario);
@@ -106,5 +106,26 @@ namespace BoopyGame
             }
         }
 
+        public async Task<bool> CambiarUsuario()
+        {
+            if(usuarioActual == null)
+            {
+                Debug.Log("No existe el usuario actual");
+                return false;
+            }
+
+            try
+            {                
+                var respuesta = await client.From<UsuarioModelo>().Update(usuarioActual);
+
+                Debug.Log($"¡Éxito! usuario cambiado a: {usuarioActual.Nombre}");
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error al actualizar el nombre: " + e.Message);
+                return false;
+            }
+        }
     }
 }

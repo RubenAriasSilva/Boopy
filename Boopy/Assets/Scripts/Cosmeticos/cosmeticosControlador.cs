@@ -51,6 +51,10 @@ public class cosmeticosControlador : MonoBehaviour
             PlayerPrefs.SetString("idGatitoEquipado", idGatitoEquipado); // Guardamos el por defecto para la próxima vez
         }
 
+        // buscar en la tabla gatitos el id
+        // actualizar id en usuario
+        // update usuario
+
         // --- Gatos ---
         idGatoEquipado = PlayerPrefs.GetString("idGatoEquipado", "");
         if (string.IsNullOrEmpty(idGatoEquipado) && idsCosmeticosGatosDesbloqueados.Count > 0)

@@ -14,6 +14,7 @@ public class MenuControlador : MonoBehaviour
     private List<string> idsCosmeticosGatitosDesbloqueados;
     private List<string> idsCosmeticosGatosDesbloqueados;
 
+    private ConfiguracionPartida confPartida = new ConfiguracionPartida();
     void Start()
     {
         // 1. Cargar los cosméticos del Jugador 1 desde PlayerPrefs (igual que antes)
@@ -44,6 +45,9 @@ public class MenuControlador : MonoBehaviour
     public void JugarPartidaVsIA()
     {
         Debug.Log("vs IA");
+        confPartida.nombreJugador1 = GameManager_DB.Instance.usuarioActual.Nombre;
+        confPartida.nombreJugador2 = "GATO ROBOTICO";
+        GameManager.Instance.confPartidaActual = confPartida;
         GameManager.Instance.ModoSeleccionado = ModoDeJuego.VsIA;
         SceneManager.LoadScene("partida");
     }
@@ -51,6 +55,9 @@ public class MenuControlador : MonoBehaviour
     public void JugarPartidaTutorial()
     {
         Debug.Log("Tutorial");
+        confPartida.nombreJugador1 = GameManager_DB.Instance.usuarioActual.Nombre;
+        confPartida.nombreJugador2 = " ";
+        GameManager.Instance.confPartidaActual = confPartida;
         GameManager.Instance.ModoSeleccionado = ModoDeJuego.Tutorial;
         SceneManager.LoadScene("partida");
     }

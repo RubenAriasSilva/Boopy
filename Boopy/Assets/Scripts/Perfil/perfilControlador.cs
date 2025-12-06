@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Threading.Tasks;
 
 namespace BoopyGame
 {
     public class perfilControlador : MonoBehaviour
-    {
-        public string nombre;
+    {        
+        public TMP_InputField nombre_input;
         public TextMeshProUGUI nombrePerfil;
 
         void Start()
         {
-            nombre = GameManager_DB.Instance.usuarioActual.Nombre;
-            nombrePerfil.text = nombre;
+            string nombre = getUsuarioNombre();
+            CambiarNombre(nombre);
         }
 
 
@@ -21,9 +22,42 @@ namespace BoopyGame
             Debug.Log("Cambiar foto");
         }
 
-        public void CambiarNombre()
+        private string getUsuarioNombre()
         {
-            Debug.Log("Cambiar nombre");
+            return GameManager_DB.Instance.usuarioActual.Nombre;
+        }
+
+        private void CambiarNombre(string n)
+        {
+            nombrePerfil.text = n;
+        }
+
+        public async void GuardarCambios()
+        {
+            string nombre = nombre_input.text;
+            CambiarNombre(nombre);            
+            
+            bool exito = await GuardarCambiosBD(nombre);
+            if(!exito) return;
+        }
+
+        private async Task<bool> GuardarCambiosBD(string nombre)
+        {
+            if(nombre == null) return false;
+
+            GameManager_DB.Instance.usuarioActual.Nombre = nombre;
+
+            bool exito = await GameManager_DB.Instance.CambiarUsuario();
+
+            if (exito)
+            {
+                Debug.Log("Nombre actualizado en tabla");
+                return true;
+            } else
+            {
+                Debug.Log("Nombre no se logro actualizar");
+                return false;
+            }
         }
 
         public void Regresar ()

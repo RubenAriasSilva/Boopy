@@ -65,6 +65,7 @@ namespace BoopyGame
             correo = correo_input.text;
             password = password_input.text;
             password2 = password2_input.text;
+            int idIdiona = PlayerPrefs.GetInt("IdiomaSeleccionado", 0);
 
             if(password != password2)
             {
@@ -72,7 +73,7 @@ namespace BoopyGame
               return;  
             } 
 
-            bool exito = await GameManager_DB.Instance.CrearUsuario(nickName, correo, password);
+            bool exito = await GameManager_DB.Instance.CrearUsuario(nickName, correo, password, idIdiona);
             
             if (exito)
             {

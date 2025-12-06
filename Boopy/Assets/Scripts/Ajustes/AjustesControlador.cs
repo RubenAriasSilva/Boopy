@@ -7,6 +7,7 @@ namespace BoopyGame
     public class AjustesControlador : MonoBehaviour
     {
         public GameObject idiomas;
+        public GameObject acerca;
         public Slider volumeSlider;
 
         public Toggle toggleEspanol; 
@@ -38,7 +39,12 @@ namespace BoopyGame
 
         public void AcercaDe ()
         {
-            Debug.Log("Acerca de");
+            acerca.SetActive(true);
+        }
+
+        public void CerrarAcercaDe ()
+        {
+            acerca.SetActive(false);
         }
 
         public void AbrirIdiomas ()

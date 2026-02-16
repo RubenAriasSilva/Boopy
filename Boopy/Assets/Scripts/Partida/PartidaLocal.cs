@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 namespace BoopyGame
@@ -46,17 +47,19 @@ namespace BoopyGame
             Jugador jugadorActual = controlador.GetJugadorActual();
             Jugador jugadorGanador = null;
             int token;
+            bool continuarRevisando;
+            var resultado = new ResultadoLinea(); // tipo = NO_LINEA por defecto
 
             if (!jugadorActual.HaSeleccionadoGato)
             {
-                Debug.Log("No se ha seleccionado un gato");
+                UnityEngine.Debug.Log("No se ha seleccionado un gato");
                 controlador.SetEstaMoviendo(false);
                 yield break;
             }
 
             if (!tablero.SetGato(jugadorActual.GatoSeleccionado, fila, col))
             {
-                Debug.Log("Movimiento invalido");
+                UnityEngine.Debug.Log("Movimiento invalido");
                 controlador.SetEstaMoviendo(false);
                 yield break;
             }
@@ -71,7 +74,7 @@ namespace BoopyGame
             if (cambios.Count > 0)
             {
                 controlador.EjecutarCambiosBoopy(cambios);
-                Debug.Log("Ejecutando Boopy");
+                UnityEngine.Debug.Log("Ejecutando Boopy");
                 controlador.tableroVista.ActualizarTableroVisual();
                 yield return new WaitForSeconds(0.5f);
             }
@@ -79,13 +82,43 @@ namespace BoopyGame
             // Si el jugador puso todos sus gatitos dentro del tablero, gana el juego
             if (jugadorActual.TodosLosGatosDentro())
             {
-                Debug.Log("Gano el jugador " + jugadorActual.IdJugador + "Todos sus gatos dentro");
+                UnityEngine.Debug.Log("Gano el jugador " + jugadorActual.IdJugador + "Todos sus gatos dentro");
                 controlador.SetJuegoTerminado(jugadorActual.IdJugador);
                 yield return new WaitForSeconds(0.6f);
                 partidaVista.TerminarPartida(jugadorActual.Nombre);
             }
 
+            continuarRevisando = true;
+            while (continuarRevisando)
+            {
+                resultado = motorDeReglas.RevisarLineas2();
+                if(resultado.tipo == ResultadoLinea.Tipo.LINEA_GANADORA)
+                {
+                    token = tablero.GetGato(resultado.coords[0,0], resultado.coords[0,1]);
+                    jugadorGanador = (token < 0) ? controlador.GetJugador1() : controlador.GetJugador2();
+                    UnityEngine.Debug.Log("Gano el jugador " + jugadorGanador.IdJugador);
+                    controlador.SetJuegoTerminado(jugadorGanador.IdJugador);
+                    yield return new WaitForSeconds(0.6f);
+                    partidaVista.TerminarPartida(jugadorGanador.Nombre);
+                    continuarRevisando = false;
+                }
+                else if (resultado.tipo == ResultadoLinea.Tipo.LINEA_NORMAL)
+                {
+                    UnityEngine.Debug.Log("Gatos chicos se hacen grandes");
+                    controlador.PromoverGatitos(resultado.coords);
+                    controlador.tableroVista.ActualizarTableroVisual();
+                    yield return new WaitForSeconds(0.5f);
+                }
+                else if(resultado.tipo == ResultadoLinea.Tipo.NO_LINEA)
+                {
+                    UnityEngine.Debug.Log("no hay linea");
+                    continuarRevisando = false;
+                }
+            }
+/*
             List<ResultadoLinea> resultados = motorDeReglas.RevisarLineas();
+            int n = resultados.Count;
+            UnityEngine.Debug.Log("lineas: " + n);            
             if(resultados.Count > 0)
             {
                 foreach(var resultado in resultados)
@@ -94,21 +127,21 @@ namespace BoopyGame
                     {
                         token = tablero.GetGato(resultado.coords[0,0], resultado.coords[0,1]);
                         jugadorGanador = (token < 0) ? controlador.GetJugador1() : controlador.GetJugador2();
-                        Debug.Log("Gano el jugador " + jugadorGanador.IdJugador);
+                        UnityEngine.Debug.Log("Gano el jugador " + jugadorGanador.IdJugador);
                         controlador.SetJuegoTerminado(jugadorGanador.IdJugador);
                         yield return new WaitForSeconds(0.6f);
                         partidaVista.TerminarPartida(jugadorGanador.Nombre);
                     }
                     else if (resultado.tipo == ResultadoLinea.Tipo.LINEA_NORMAL)
                     {
-                        Debug.Log("Gatos chicos se hacen grandes");
+                        UnityEngine.Debug.Log("Gatos chicos se hacen grandes");
                         controlador.PromoverGatitos(resultado.coords);
                         controlador.tableroVista.ActualizarTableroVisual();
                         yield return new WaitForSeconds(0.5f);
                     }   
                 }                
             }
-
+*/
             controlador.ActualizarVista();
 
             // Si el juego termino, regresamos al menu principal
@@ -121,7 +154,7 @@ namespace BoopyGame
             }
 
             controlador.SetEstaMoviendo(false);
-            Debug.Log("Final de realizar movimiento");
+            UnityEngine.Debug.Log("Final de realizar movimiento");
         }
 
         public void SiguientePaso(){}

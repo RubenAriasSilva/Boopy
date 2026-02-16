@@ -36,7 +36,7 @@ namespace BoopyGame
         {
             string nombre = nombre_input.text;
             CambiarNombre(nombre);            
-            
+
             bool exito = await GuardarCambiosBD(nombre);
             if(!exito) return;
         }
@@ -45,6 +45,14 @@ namespace BoopyGame
         {
             if(nombre == null) return false;
 
+            bool conexion = GameManager_DB.Instance.hayConexion();
+
+            if (!conexion)
+            {
+                GameManager_DB.Instance.UsuarioPredeterminado(nombre);
+                return true;
+            }
+            
             GameManager_DB.Instance.usuarioActual.Nombre = nombre;
 
             bool exito = await GameManager_DB.Instance.CambiarUsuario();

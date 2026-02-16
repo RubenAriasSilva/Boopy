@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using BoopyGame;
+using System.Diagnostics;
 
 public class MotorDeReglas
 {
@@ -168,8 +169,34 @@ public class MotorDeReglas
                 }
             }
         }
-
+    
         return resultados;
+    }
+
+    public ResultadoLinea RevisarLineas2()
+    {
+        int tam = tablero.GetTamanioTablero();                
+        var resultado = new ResultadoLinea(); // tipo = NO_LINEA por defecto
+
+        for (int row = 0; row < tam; row++)
+        {
+            for (int col = 0; col < tam; col++)
+            {
+                int token = GetGato(row, col);
+                if (token == 0) continue;
+
+                resultado.tipo = TresEnFila(token, row, col, resultado);
+                if (resultado.tipo != ResultadoLinea.Tipo.NO_LINEA) return resultado;
+                
+                resultado.tipo = TresEnColumna(token, row, col, resultado);
+                if (resultado.tipo != ResultadoLinea.Tipo.NO_LINEA) return resultado;
+                
+                resultado.tipo = TresEnDiagonal(token, row, col, resultado);
+                if (resultado.tipo != ResultadoLinea.Tipo.NO_LINEA) return resultado;                
+            }
+        }
+    
+        return resultado;
     }
 
     public string ToStringTablero()

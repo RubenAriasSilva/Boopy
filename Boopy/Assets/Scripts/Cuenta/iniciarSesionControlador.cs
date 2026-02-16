@@ -60,6 +60,13 @@ namespace BoopyGame
             SceneManager.LoadScene("registrarse");        
         }
 
+
+        public void JugarSinConexion()
+        {
+            GameManager_DB.Instance.UsuarioPredeterminado();
+            SceneManager.LoadScene("menuPrincipal");
+        }
+
         public async void IniciarSesion ()
         {
             correo = correo_input.text;

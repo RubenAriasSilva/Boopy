@@ -86,6 +86,12 @@ namespace BoopyGame
             }            
         }
 
+        public void JugarSinConexion()
+        {
+            GameManager_DB.Instance.UsuarioPredeterminado();
+            SceneManager.LoadScene("menuPrincipal");
+        }
+
         public void IniciarSesion ()
         {
             SceneManager.LoadScene("iniciarSesion");
